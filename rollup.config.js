@@ -8,7 +8,7 @@ const sourceDirectory = './src';
 const distDirectory = './dist';
 
 module.exports = {
-  input: 'src/module/foundryvtt-importer.ts',
+  input: 'src/module/import-rolltables.ts',
   output: {
     dir: 'dist/module',
     format: 'es',

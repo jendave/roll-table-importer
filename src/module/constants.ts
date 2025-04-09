@@ -1,7 +1,7 @@
 const CONSTANTS = Object.freeze({
   module: {
-    name: 'foundry-vtt-content-parser',
-    title: 'Content Parser',
+    name: 'import-rolltables',
+    title: 'Rollable Tables Importer',
   },
 });
 

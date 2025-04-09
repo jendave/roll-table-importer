@@ -1,6 +1,6 @@
 const stringifyPackage = require('stringify-package');
 
-const githubRepository = 'https://github.com/EthanJWright/foundryvtt-importer';
+const githubRepository = 'https://github.com/jendave/import-rolltables';
 
 module.exports.readVersion = function (contents) {
   return JSON.parse(contents).version;

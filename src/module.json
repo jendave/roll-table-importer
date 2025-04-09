@@ -1,27 +1,31 @@
 {
-  "id": "foundry-vtt-content-parser",
-  "name": "foundry-vtt-content-parser",
-  "title": "Foundry VTT Content Parser",
-  "description": "import foundry entities from external sources",
-  "version": "0.2.50",
-  "author": "EthanJWright",
+  "id": "import-rolltables",
+  "name": "import-rolltables",
+  "title": "Rollable Tables Importer",
+  "description": "Import Foundry rollable tables from external sources",
+  "version": "0.0.1",
   "authors": [
+    {
+      "name": "David Y. Hudson",
+      "discord": "jendave",
+      "url": "https://jendave.itch.io/"
+    },
     {
       "name": "EthanJWright",
       "email": "ewright326@gmail.com",
       "discord": "GabenMessiah (Ethan)#0551"
     }
   ],
-  "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "11",
+  "minimumCoreVersion": "12",
+  "compatibleCoreVersion": "12",
   "compatibility": {
-    "minimum": 8,
-    "verified": "11",
-    "maximum": "11"
+    "minimum": "12",
+    "verified": "12",
+    "maximum": "12"
   },
   "scripts": [],
-  "esmodules": ["module/foundryvtt-importer.js"],
-  "styles": ["styles/foundryvtt-importer.css"],
+  "esmodules": ["module/import-rolltables.js"],
+  "styles": ["styles/import-rolltables.css"],
   "packs": [],
   "languages": [
     {
@@ -31,9 +35,9 @@
     }
   ],
   "socket": false,
-  "url": "https://github.com/EthanJWright/foundryvtt-importer",
-  "manifest": "https://github.com/EthanJWright/foundryvtt-importer/releases/latest/download/module.json",
-  "download": "https://github.com/EthanJWright/foundryvtt-importer/releases/download/v0.2.50/module.zip",
+  "manifest": "#{MANIFEST}#",
+  "url": "#{URL}#",
+  "download": "#{DOWNLOAD}#",
   "license": "GPL3",
   "readme": "",
   "bugs": "",

@@ -1,10 +1,8 @@
 # Foundry VTT Content Parser
 
-[![Checks](https://github.com/EthanJWright/foundryvtt-importer/workflows/Checks/badge.svg)](https://github.com/EthanJWright/foundryvtt-importer/actions)
-![Latest Release Download Count](https://img.shields.io/github/downloads/EthanJWright/foundryvtt-importer/latest/module.zip)
-[![Github All Releases](https://img.shields.io/github/downloads/EthanJWright/foundryvtt-importer/total.svg)]()
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U6U877XT1)
+[![Checks](https://github.com/jendave/import-rolltables/workflows/Checks/badge.svg)](https://github.com/jendave/import-rolltables/actions)
+![Latest Release Download Count](https://img.shields.io/github/downloads/jendave/import-rolltables/latest/module.zip)
+[![Github All Releases](https://img.shields.io/github/downloads/jendave/import-rolltables/total.svg)]()
 
 Create foundry elements from external sources.
 
@@ -18,26 +16,13 @@ Create foundry elements from external sources.
 
 ## Demos
 
-*Import a monster from a PDF*
-(using Zathura as my PDF reader)
-
-![Actor Importing from PDF](https://media0.giphy.com/media/0RYtEwdcfiB6zQURlK/giphy.gif?cid=790b7611c1b01d4886800fd3d18d238cb08b6d0b63bf3159&rid=giphy.gif&ct=g)
-
 *Import a table from reddit.com/r/BehindTheTables*
 
 ![Table Importing from Reddit](https://media4.giphy.com/media/qeiKk0SSvOPngZpca0/giphy.gif?cid=790b761108da49b64336e28d589d0dd28259b61333b5f74e&rid=giphy.gif&ct=g)
 
-*Import an item from a PDF*
-
-![Item Importing from PDF](https://media3.giphy.com/media/geoyoPvqw6hSn3CJgQ/giphy.gif?cid=790b76113d7feb89632e00f526f0c16b20f63f8127036c60&rid=giphy.gif&ct=g)
-
-*Import Journal Entries*
-
-![Import Journal Entries](https://media3.giphy.com/media/s1eayXpAxvewapb55H/giphy.gif?cid=790b76118c77469b29e65fb1182ad4ccf7cf480e949caa1b&rid=giphy.gif&ct=g)
-
 ## Support
 
-Currently some features only support the 5e game system.
+
 
 ## Key Features
 
@@ -62,50 +47,15 @@ Reddit.
 
 Importing Reddit table collections are great when paired with the [Table Ninja](https://github.com/Adriannom/fvtt-module-table-ninja) module.
 
----
-
-### Actors (5e only)
-
-Import actors from text based monster blocks. I currently either copy my pdf to
-text, or use a pdf tool (like zathura) that allows me to copy blocks of text.
-
-Paste the block of text into the clipboard utility, and a best effort monster
-will be generated matching the text.
-
-Import MCDM Action Oriented monsters, such as found [here](https://files.mcdmproductions.com/FleeMortals/FleeMortalsPreview.pdf)
-
-Build a [Universal NPC Roleplay Template](https://thealexandrian.net/wordpress/37916/roleplaying-games/universal-npc-roleplaying-template) using [Chat GPT](https://openai.com/blog/chatgpt/) and auto import the stat block.
-(see example in Actor section)
-
-
-### Items (5e only)
-
-Import items copied from text blocks from PDFs. Will best effort parse
-and generate an item based on the elements.
-
-### Journals
-
-Copy and paste text from anywhere, toggle if you want this to convert to one or
-multiple journal entries.
-
-Paste HTML to get formatted journals, each h1 tag is treated as a new page.
-
-I'm playing around with using [Open AI](https://github.com/EthanJWright/ai_format) to parse PDFs (that I convert to text with pdftotext) into HTML.
-
-or
-
-Import journals from a structured JSON created by some other tool, such as my [PDF Parse](https://github.com/EthanJWright/pdfparse)
-tool which attempts to process modules that may be found in DMs guild.
-
 ## Have an issue?
 
-Open an issue [here](https://github.com/EthanJWright/foundryvtt-importer/issues) and follow the template.
+Open an issue [here](https://github.com/jendave/import-rolltables/issues) and follow the template.
 
 Sample data that I have for testing parsers is limited. If you have
 sample data that is not working, please open an issue and I can add it
 to my tests and update the parsers.
 
-## Tables
+## Rollable Tables
 
 Tables can be imported from a JSON file with a simple structure, a txt file, or
 through a CSV file. Each method is documented below.
@@ -308,217 +258,11 @@ goods.csv
 11-12|Cloth
 ```
 
-## Actors (5e only)
-
-Actors can be created by copying the text of a mosnter block into the clipboard
-tool.
-
-The tool is designed to handle several standard formats of monster blocks, and
-attempts to resolve as many elements as possible into Foundry Actor items.
-
-An example monster block could look like the below Swashbuckler:
-
-
-```txt
-Swashbuckler
-Armor Class 17 (leather armor)
-Hit Points 66 (12d8 + 12)
-Speed 30 ft.Armor Class 12 (15 with mage armor)
-Hit Points 78 (12d8 + 24)
-Speed 30 ft.
-Medium humanoid (any race), any non-lawful alignment
-STR
-12 (+1)
-DEX
-18 (+4)
-CON
-12 (+1)
-INT
-14 (+2)
-WIS
-11 (+0)
-Medium humanoid (any race), any alignment
-CHA
-15 (+2)
-Skills Acrobatics +8, Athletics +5, Persuasion +6
-Senses passive Perception 10
-Languages any one language (usually Common)
-Challenge 3 (700 XP)
-Lightfooted. The swashbuckler can take the Dash or Disengage
-action as a bonus action on each of its turns.
-Suave Defense. While the swashbuckler is wearing light or no
-armor and wielding no shield, its AC includes its Charisma
-modifier.
-Actions
-Multiattack. The swashbuckler makes three attacks: one with
-a dagger and two with its rapier.
-Dagger. Melee or Ranged Weapon Attack: +6 to hit, reach 5
-ft. or range 20/60 ft., one target. Hit: 6 (1d4 + 4) piercing
-damage.
-Rapier. Melee Weapon Attack: +6 to hit, reach 5 ft., one target.
-Hit: 8 (1d8 + 4) piercing damage.
-```
-
-### Generate an NPC block with GPT
-
-Build a [Universal NPC Roleplay Template](https://thealexandrian.net/wordpress/37916/roleplaying-games/universal-npc-roleplaying-template) using [Chat GPT](https://openai.com/blog/chatgpt/) and auto import the stat block.
-Just start your NPC template with the following:
-
-
-```txt
-Provide an NPC description with the sections - (appearance, quote, roleplaying tips, voice description, background, key info, copyable dnd 5e stat block) for a
-```
-
-As an example:
-
-```txt
-Provide an NPC description with the sections - (appearance, quote, roleplaying tips, voice description, background, key info, copyable dnd 5e stat block) for a male scholarly tiefling who is a coward and a wizard, named Theral
-```
-
-This should generate something similar to the following:
-
-```txt
-Appearance: Theral is a male tiefling with pale, almost sickly looking skin, dark eyes and a thin, angular face. He has small, pointed horns on his forehead and a thin, curled tail. He is small in stature and appears somewhat frail.
-
-Quote: "Please, don't hurt me! I'm just a simple scholar, I don't want any trouble!"
-
-Roleplaying Tips: Theral is a coward at heart and will do anything to avoid danger. He is intelligent and knowledgeable, but lacks confidence and bravery. He can be easily intimidated and manipulated, and may make poor decisions as a result. When roleplaying as Theral, try to portray him as someone who is constantly on edge and looking for ways to avoid conflict.
-
-Voice Description: Theral has a high-pitched, nasally voice that quivers when he speaks. He tends to speak quickly, as if he is afraid of being interrupted.
-
-Background: Theral was born into a wealthy, scholarly family and was raised to value knowledge and learning above all else. However, his cowardice and lack of physical prowess made him an outcast among his peers. He turned to magic as a means of gaining power and respect, but his lack of courage often hinders his abilities.
-
-Key Info: Theral is a wizard and has a deep knowledge of magic and the arcane. However, he is afraid to use his powers and will only do so if he feels he has no other choice. He is also a skilled scholar and can provide valuable information on a wide range of subjects.
-
-Copyable D&D 5e Stat Block:
-
-Copy code
-Theral
-
-Medium humanoid (tiefling), lawful neutral
-
-Armor Class 12
-
-Hit Points 5 (1d6 + 1)
-
-Speed 30 ft.
-
-STR 8 (-1) DEX 14 (+2) CON 12 (+1) INT 18 (+4) WIS 8 (-1) CHA 14 (+2)
-
-Saving Throws Int +6, Cha +4
-
-Skills Arcana +6, History +6, Religion +6
-
-Senses darkvision 60 ft., passive Perception 9
-
-Languages Common, Infernal, two others
-
-Challenge 1/8 (25 XP)
-
-Magic Resistance. Theral has advantage on saving throws against spells and other magical effects.
-
-Spellcasting. Theral is a 1st-level spellcaster. His spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). He has the following wizard spells prepared:
-
-Cantrips (at will): fire bolt, prestidigitation, light
-
-1st level (4 slots): detect magic, mage armor, magic missile
-
-ACTIONS
-
-Dagger. Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) piercing damage.
-```
-
-
-You can copy and paste the stat block to create a matching NPC in Foundry.
-
-
-
-## Journals
-
-### Using your clipboard
-
-You can create very quick journal entries by pasting journal data. If you
-select 'Should become multiple journal entries' the module will make best
-effort guesses at where the data should be logically split, and create a folder
-of unique journal entries.
-
-### Using JSON
-
-Journal entries can be created through a tree like JSON structure as seen
-below.
-
-```json
-[
-  {
-    "value": "Chapter 1",
-    "tag": "h2",
-    "notes": [
-      {
-        "value": "Treasure: 200 gp",
-        "tag": "p"
-      },
-      {
-        "value": "Description: A caravan of goblins descends on the party.",
-        "tag": "p"
-      }
-    ],
-    "children": [
-      {
-        "value": "NPCs",
-        "tag": "h3",
-        "notes": [
-          {
-            "value": "Grib the Goblin : friendly, short, willing to bargin.",
-            "tag": "p"
-          },
-          {
-            "value": "Chadwick: captured by goblins, wants to be rescued but will betray the adventurers",
-            "tag": "p"
-          }
-        ]
-      }
-    ]
-  }
-]
-```
-
-The typescript interfaces for the JSON are as follows
-
-```typescript
-interface Note {
-  value: string;
-  tag: string;
-}
-
-interface JsonData {
-  value: string;
-  tag: string;
-  notes: Array<Note>;
-  children: Array<JsonData>;
-  sortValue?: number;
-}
-```
-
-### Sources for importing
-
-The project [PDF Parse](https://github.com/EthanJWright/pdfparse) is an attempt
-to scrub through PDFs and based on configured parameters output a JSON of the
-format above. When combined this module should allow for PDFs to be read into
-Foundry.
-
 ## Plans for future implementation
 
-- Import journals from markdown directories (such as Obsidian)
-- Actor importing is basic, want to add fine tuning for Items & add Spells
 - Make settings more configurable (to hide unused elements)
 - Make parsers more modular to allow for easy extensibility
-- Support for adding items/weapons/armor etc. Including from CSV.
 - Export to compendium. I can see people using this to import work from larger datasets and wanting to share or add them to modules.
-
-## Contributing to the codebase
-
-Currently the actor API is flushed out and extensible for contributions. The
-Item parsers are starting to be flushed out.
 
 ### Dev Environment
 
@@ -575,7 +319,7 @@ ln -s <PROJECT-DIR>/dist foundry-vtt-content-parser
 For example, the command on my system looks like so:
 
 ```sh
-ln -s ~/codespace/foundryvtt-importer/dist foundry-vtt-content-parser
+ln -s ~/mygit/import-rolltables/dist import-rolltables
 ```
 
 You should now be able to view, enable, and use the module from within Foundry.
@@ -595,31 +339,6 @@ To get test input, you can paste your data into the input box for the tool on
 foundry, open up the 'developer tools', and then copy the data that is logged
 in the console. This test data can be directly pasted as a string and used to
 validate any logic that is added.
-
-### Actor Parser Structure
-
-The actor parsers are populated in the `src/module/actor/parsers/available.ts`
-list. Each element of an actor will have a list of availble parsers to attempt
-to parse that elment.
-
-Each parser is well typed and must either return the particular element, or
-throw an error. When the module recieves input, it will hand that input to each
-parser in the list for each field in the actor.
-
-This system means that an actor can be built from many different forms of
-input, and that input doesn't need to be routed to any specific parser. If a
-parser cannot handle the input it will error, and the next parser will be run.
-
-
----
-
-**NOTE**
-
-Feats, actions, weapons, etc, are all represented as Items in Foundry. I'm
-slowly flushing out the item parser, but currently the actor parser
-itemsParsers expects a return of one of the types defined in the Item
-interface. Look at the implementation of parseItemsWTC for an example of item
-parsing.
 
 ---
 
