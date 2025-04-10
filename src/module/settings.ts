@@ -6,10 +6,7 @@ export interface ClientSettingsReader {
 
 export class Config {
   folderDepth = 3;
-  journalImporter = true;
   tableImporter = true;
-  actorImporter = true;
-  itemImporter = true;
 
   static keys = {
     folderDepth: 'folderDepth',

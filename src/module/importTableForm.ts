@@ -34,6 +34,7 @@ export class importTableForm extends FormApplication {
       top: window.innerHeight - window.innerHeight + 20,
       left: window.innerWidth - 710,
       template: `modules/${CONSTANTS.module.name}/templates/importTableForm.hbs`,
+      title: 'Import Rollable Table',
     });
   }
 }
