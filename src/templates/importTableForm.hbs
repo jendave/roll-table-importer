@@ -1,35 +1,4 @@
-<style>
-  form .editable {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  textarea {
-      resize: none;
-      height:auto;
-  }
-
-  div.textarea {
-    resize: none;
-    overflow: auto;
-  }
-
-  div.row {
-    resize: none;
-    overflow: none;
-  }
-
-  div.bottom {
-    resize: none;
-    overflow: none;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-  }
-</style>
-<form class="editable">
+<form>
   <div class="form-group row">
     <label for="jsonfile">JSON File:</label>
     <div class="form-fields row">
@@ -37,10 +6,10 @@
       <input type="text" name="jsonfile" placeholder="path/file.json" value="{{object.jsonfile}}" />
     </div>
   </div>
-<div class="form-group textarea" overflow="scroll">
-    <textarea id="clipboardInput" name="clipboardInput"></textarea>
- </div>
-  <div class="form-group bottom">
+  <div class="form-group textentry" overflow="scroll">
+    <textarea id="clipboardInput" name="clipboardInput" rows="15" cols="50"></textarea>
+  </div>
+  <div>
     <button type="submit" name="submit" value="submit">Okay</button>
   </div>
 </form>
