@@ -1,9 +1,9 @@
-# Rollable Tables Importer
+# Roll Tables Importer
 
-![GitHub all releases](https://img.shields.io/github/downloads/jendave/import-rolltables/total)
-[![Latest Version](https://img.shields.io/github/v/release/jendave/import-rolltables?display_name=tag&sort=semver&label=Latest%20Version)](https://github.com/jendave/augmented-reality-foundry/releases/latest)
-![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Fimport-rolltables%2Fmain%2Fmodule.json)
-[![License](https://img.shields.io/github/license/jendave/import-rolltables)](LICENSE)
+![GitHub all releases](https://img.shields.io/github/downloads/jendave/roll-tables-importer/total)
+[![Latest Version](https://img.shields.io/github/v/release/jendave/roll-tables-importer?display_name=tag&sort=semver&label=Latest%20Version)](https://github.com/jendave/augmented-reality-foundry/releases/latest)
+![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Froll-tables-importer%2Fmain%2Fmodule.json)
+[![License](https://img.shields.io/github/license/jendave/roll-tables-importer)](LICENSE)
 
 Create foundry elements from external sources.
 
@@ -48,13 +48,13 @@ Importing Reddit table collections are great when paired with the [Table Ninja](
 
 ## Have an issue?
 
-Open an issue [here](https://github.com/jendave/import-rolltables/issues) and follow the template.
+Open an issue [here](https://github.com/jendave/roll-tables-importer/issues) and follow the template.
 
 Sample data that I have for testing parsers is limited. If you have
 sample data that is not working, please open an issue and I can add it
 to my tests and update the parsers.
 
-## Rollable Tables
+## Roll Tables
 
 Tables can be imported from a JSON file with a simple structure, a txt file, or
 through a CSV file. Each method is documented below.
@@ -227,7 +227,7 @@ automatically calculated and evenly distributed:
 
 ### Text Files
 
-A .txt file can be used to create a rollable table, the importer will just
+A .txt file can be used to create a roll table, the importer will just
 treat each new line as an item in the table. The filename will be used as the
 table name.
 
@@ -243,8 +243,8 @@ Cloth
 
 ### CSVs
 
-A .csv can be used for a rollable table. as commas are quite common in text
-that will appear in rollable tables, the pipe is used as the delimiter instead
+A .csv can be used for a roll table. as commas are quite common in text
+that will appear in roll tables, the pipe is used as the delimiter instead
 (|) The file name will be used for the table name.
 
 goods.csv
@@ -318,7 +318,7 @@ ln -s <PROJECT-DIR>/dist foundry-vtt-content-parser
 For example, the command on my system looks like so:
 
 ```sh
-ln -s ~/mygit/import-rolltables/dist import-rolltables
+ln -s ~/mygit/roll-tables-importer/dist roll-tables-importer
 ```
 
 You should now be able to view, enable, and use the module from within Foundry.

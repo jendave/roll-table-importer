@@ -943,7 +943,7 @@ describe('Parse Text', () => {
   });
 
   it('should parse sphythronar sac', () => {
-    // test for issue https://github.com/EthanJWright/import-rolltables/issues/25
+    // test for issue https://github.com/EthanJWright/roll-tables-importer/issues/25
     const actorText = SPYTHRONAR_SAC;
     const actor = textToActor(actorText);
     expect(actor.name).toBe('Spythronar Sac');

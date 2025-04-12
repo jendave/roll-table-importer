@@ -19,7 +19,7 @@ const stylesExtension = 'css';
 const sourceFileExtension = 'ts';
 const staticFiles = ['assets', 'fonts', 'lang', 'packs', 'templates', 'module.json'];
 const getDownloadURL = (version) =>
-  `https://github.com/jendave/import-rolltables/releases/download/v${version}/module.zip`;
+  `https://github.com/jendave/roll-tables-importer/releases/download/v${version}/module.zip`;
 
 /********************/
 /*      BUILD       */

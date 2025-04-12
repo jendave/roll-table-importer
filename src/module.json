@@ -1,8 +1,8 @@
 {
-  "id": "import-rolltables",
-  "name": "import-rolltables",
-  "title": "Rollable Tables Importer",
-  "description": "Import Foundry rollable tables from external sources",
+  "id": "roll-tables-importer",
+  "name": "roll-tables-importer",
+  "title": "Roll Tables Importer",
+  "description": "Import Foundry roll tables from external sources",
   "version": "0.0.1",
   "authors": [
     {
@@ -24,8 +24,8 @@
     "maximum": "12"
   },
   "scripts": [],
-  "esmodules": ["module/import-rolltables.js"],
-  "styles": ["styles/import-rolltables.css"],
+  "esmodules": ["module/roll-tables-importer.js"],
+  "styles": ["styles/roll-tables-importer.css"],
   "packs": [],
   "languages": [
     {
