@@ -1,0 +1,30 @@
+/* ------------------------------------ */
+/*                 CSS                  */
+/*         Add your styles here         */
+/* ------------------------------------ */
+.form {
+  resize: both;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+textarea {
+  resize: none;
+  overflow: auto;
+  height: 100%;
+  position: relative;
+}
+
+div.textentry {
+  resize: none;
+  overflow: auto;
+  height: 80%;
+  position: relative;
+}
+
+div.row {
+  resize: none;
+  overflow: none;
+}
