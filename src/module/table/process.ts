@@ -65,7 +65,7 @@ async function handleRedditCollection(input: string) {
   const parsed = parseRedditCollection(input);
   const folder = await Folder.create({ name: parsed.name, type: 'RollTable', sorting: 'm' });
   const promises = parsed.collection.map(async (table, index) => {
-    return RollTable.create({ ...table, folder: folder?.data?._id, sort: index });
+    return RollTable.create({ ...table, folder: folder?.id, sort: index });
   });
   await Promise.all(promises);
 }
