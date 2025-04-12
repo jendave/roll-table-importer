@@ -8,7 +8,7 @@ const sourceDirectory = './src';
 const distDirectory = './dist';
 
 module.exports = {
-  input: 'src/module/roll-tables-importer.ts',
+  input: 'src/module/roll-table-importer.ts',
   output: {
     dir: 'dist/module',
     format: 'es',

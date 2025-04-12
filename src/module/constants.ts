@@ -1,6 +1,6 @@
 const CONSTANTS = Object.freeze({
   module: {
-    name: 'roll-tables-importer',
+    name: 'roll-table-importer',
     title: 'Rollable Tables Importer',
   },
 });

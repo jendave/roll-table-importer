@@ -1,9 +1,9 @@
 # Roll Tables Importer
 
-![GitHub all releases](https://img.shields.io/github/downloads/jendave/roll-tables-importer/total)
-[![Latest Version](https://img.shields.io/github/v/release/jendave/roll-tables-importer?display_name=tag&sort=semver&label=Latest%20Version)](https://github.com/jendave/augmented-reality-foundry/releases/latest)
-![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Froll-tables-importer%2Fmain%2Fsrc%2Fmodule.json)
-[![License](https://img.shields.io/github/license/jendave/roll-tables-importer)](LICENSE)
+![GitHub all releases](https://img.shields.io/github/downloads/jendave/roll-table-importer/total)
+[![Latest Version](https://img.shields.io/github/v/release/jendave/roll-table-importer?display_name=tag&sort=semver&label=Latest%20Version)](https://github.com/jendave/augmented-reality-foundry/releases/latest)
+![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Froll-table-importer%2Fmain%2Fsrc%2Fmodule.json)
+[![License](https://img.shields.io/github/license/jendave/roll-table-importer)](LICENSE)
 
 Create foundry elements from external sources.
 
@@ -48,7 +48,7 @@ Importing Reddit table collections are great when paired with the [Table Ninja](
 
 ## Have an issue?
 
-Open an issue [here](https://github.com/jendave/roll-tables-importer/issues) and follow the template.
+Open an issue [here](https://github.com/jendave/roll-table-importer/issues) and follow the template.
 
 Sample data that I have for testing parsers is limited. If you have
 sample data that is not working, please open an issue and I can add it
@@ -318,7 +318,7 @@ ln -s <PROJECT-DIR>/dist foundry-vtt-content-parser
 For example, the command on my system looks like so:
 
 ```sh
-ln -s ~/mygit/roll-tables-importer/dist roll-tables-importer
+ln -s ~/mygit/roll-table-importer/dist roll-table-importer
 ```
 
 You should now be able to view, enable, and use the module from within Foundry.
