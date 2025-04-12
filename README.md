@@ -2,7 +2,7 @@
 
 ![GitHub all releases](https://img.shields.io/github/downloads/jendave/roll-tables-importer/total)
 [![Latest Version](https://img.shields.io/github/v/release/jendave/roll-tables-importer?display_name=tag&sort=semver&label=Latest%20Version)](https://github.com/jendave/augmented-reality-foundry/releases/latest)
-![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Froll-tables-importer%2Fmain%2Fmodule.json)
+![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Froll-tables-importer%2Fmain%2Fsrc%2Fmodule.json)
 [![License](https://img.shields.io/github/license/jendave/roll-tables-importer)](LICENSE)
 
 Create foundry elements from external sources.
