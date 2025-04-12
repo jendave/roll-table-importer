@@ -1,8 +1,9 @@
-# Foundry VTT Content Parser
+# Rollable Tables Importer
 
-[![Checks](https://github.com/jendave/import-rolltables/workflows/Checks/badge.svg)](https://github.com/jendave/import-rolltables/actions)
-![Latest Release Download Count](https://img.shields.io/github/downloads/jendave/import-rolltables/latest/module.zip)
-[![Github All Releases](https://img.shields.io/github/downloads/jendave/import-rolltables/total.svg)]()
+![GitHub all releases](https://img.shields.io/github/downloads/jendave/import-rolltables/total)
+[![Latest Version](https://img.shields.io/github/v/release/jendave/import-rolltables?display_name=tag&sort=semver&label=Latest%20Version)](https://github.com/jendave/augmented-reality-foundry/releases/latest)
+![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Fimport-rolltables%2Fmain%2Fmodule.json)
+[![License](https://img.shields.io/github/license/jendave/import-rolltables)](LICENSE)
 
 Create foundry elements from external sources.
 
@@ -16,13 +17,11 @@ Create foundry elements from external sources.
 
 ## Demos
 
-*Import a table from reddit.com/r/BehindTheTables*
+* Import a table from reddit.com/r/BehindTheTables*
 
 ![Table Importing from Reddit](https://media4.giphy.com/media/qeiKk0SSvOPngZpca0/giphy.gif?cid=790b761108da49b64336e28d589d0dd28259b61333b5f74e&rid=giphy.gif&ct=g)
 
 ## Support
-
-
 
 ## Key Features
 
@@ -32,18 +31,18 @@ Import tables from external sources, creating quick collections.
 
 Import tables from:
 
-- Create many tables all nested in a folder from [Reddit](https://www.reddit.com/r/BehindTheTables)
-- Copy and paste data to be parsed (reddit, entries per line, csv, json, etc.)
-- Import text files (new lines are table entries)
-- Import CSV files (first column treated as roll hits)
-- Import from JSON (a few different structures to suite needs, easy to generate from scripts)
-- Generate NPCs with ChatGPT and import them into foundry!
+* Create many tables all nested in a folder from [Reddit](https://www.reddit.com/r/BehindTheTables)
+* Copy and paste data to be parsed (reddit, entries per line, csv, json, etc.)
+* Import text files (new lines are table entries)
+* Import CSV files (first column treated as roll hits)
+* Import from JSON (a few different structures to suite needs, easy to generate from scripts)
+* Generate NPCs with ChatGPT and import them into foundry!
 
 Reddit.
 
 ---
 
-**NOTE**
+#### NOTE
 
 Importing Reddit table collections are great when paired with the [Table Ninja](https://github.com/Adriannom/fvtt-module-table-ninja) module.
 
@@ -260,9 +259,9 @@ goods.csv
 
 ## Plans for future implementation
 
-- Make settings more configurable (to hide unused elements)
-- Make parsers more modular to allow for easy extensibility
-- Export to compendium. I can see people using this to import work from larger datasets and wanting to share or add them to modules.
+* Make settings more configurable (to hide unused elements)
+* Make parsers more modular to allow for easy extensibility
+* Export to compendium. I can see people using this to import work from larger datasets and wanting to share or add them to modules.
 
 ### Dev Environment
 
@@ -300,7 +299,7 @@ npm run build
 
 The build command should generate a `dist` repo with the following contents:
 
-```
+```sh
 drwxrwxr-x     - ubuntu  8 Feb 20:21   -I  lang
 drwxrwxr-x     - ubuntu  8 Feb 20:21   -I  module
 .rw-rw-r--  1.0k ubuntu  8 Feb 20:21   -I  module.json
@@ -353,7 +352,6 @@ and a corresponding test file `test/actor/parsers/yourNewParser.test.ts`
 
 Now you can define a parser, such as for parsing a name. You can find the list
 of potential parsers and their expected types in the file `src/module/actor/parserTypes.ts`
-
 
 Now you can create your new parser for a name:
 

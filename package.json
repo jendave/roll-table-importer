@@ -1,8 +1,9 @@
 {
   "private": true,
-  "name": "Foundry VTT Content Parser",
-  "version": "0.2.50",
-  "description": "",
+  "name": "import-rolltables",
+  "title": "Rollable Tables Importer",
+  "description": "Import Foundry rollable tables from external sources",
+  "version": "0.0.1",
   "license": "",
   "homepage": "",
   "repository": {
@@ -14,7 +15,7 @@
   },
   "contributors": [
     {
-      "name": "",
+      "name": "David Hudson",
       "email": ""
     }
   ],
