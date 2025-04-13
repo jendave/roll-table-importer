@@ -9,10 +9,10 @@ Create Foundry VTT roll tables from external sources.
 
 ## Usage
 
-1. Press `Import Tables` button in Roll Tables tab
+1. Click `Import Tables` button in Roll Tables tab
 2. Copy text of entry you are trying to import
 3. Paste in the clipboard text area
-4. Press okay
+4. Click `Okay`
 5. Tweak and use imported data
 
 ## Demos
@@ -36,11 +36,6 @@ Import tables from:
 * Import text files (new lines are table entries)
 * Import CSV files (first column treated as roll hits)
 * Import from JSON (a few different structures to suite needs, easy to generate from scripts)
-* Generate NPCs with ChatGPT and import them into foundry!
-
-Reddit.
-
----
 
 #### NOTE
 
@@ -48,21 +43,17 @@ Importing Reddit table collections are great when paired with the [Table Ninja](
 
 ## Have an issue?
 
-Open an issue [here](https://github.com/jendave/roll-table-importer/issues) and follow the template.
+Open an issue [here](https://github.com/jendave/roll-table-importer/issues)
 
-Sample data that I have for testing parsers is limited. If you have
-sample data that is not working, please open an issue and I can add it
-to my tests and update the parsers.
+Sample data that I have for testing parsers is limited. If you have sample data that is not working, please open an issue and I can add it to my tests and update the parsers.
 
 ## Roll Tables
 
-Tables can be imported from a JSON file with a simple structure, a txt file, or
-through a CSV file. Each method is documented below.
+Tables can be imported from a JSON file with a simple structure, a txt file, or through a CSV file. Each method is documented below.
 
 ### Reddit
 
-The table tool comes with a text box where you can copy/paste tables from the
-[Behind the Tables subreddit.](https://www.reddit.com/r/BehindTheTables)
+The table tool comes with a text box where you can copy/paste tables from the [Behind the Tables subreddit.](https://www.reddit.com/r/BehindTheTables)
 
 A single table can be created:
 
@@ -90,8 +81,7 @@ d10 This place is (or was) a...
     A maze.
 ```
 
-Or multiple tables can be part of a collection, which will be placed in a
-folder:
+Or multiple tables can be part of a collection, which will be placed in a folder:
 
 ```txt
 Random Dungeons
@@ -215,8 +205,7 @@ A structure similar to Foundry's interface for tables is valid:
 }
 ```
 
-Or a simpler structure can be passed and the formula and ranges will be
-automatically calculated and evenly distributed:
+Or a simpler structure can be passed and the formula and ranges will be automatically calculated and evenly distributed:
 
 ```json
 {
@@ -227,9 +216,7 @@ automatically calculated and evenly distributed:
 
 ### Text Files
 
-A .txt file can be used to create a roll table, the importer will just
-treat each new line as an item in the table. The filename will be used as the
-table name.
+A .txt file can be used to create a roll table, the importer will just treat each new line as an item in the table. The filename will be used as the table name.
 
 goods.txt :
 
@@ -243,9 +230,7 @@ Cloth
 
 ### CSVs
 
-A .csv can be used for a roll table. as commas are quite common in text
-that will appear in roll tables, the pipe is used as the delimiter instead
-(|) The file name will be used for the table name.
+A .csv can be used for a roll table. as commas are quite common in text that will appear in roll tables, the pipe is used as the delimiter instead (|) The file name will be used for the table name.
 
 goods.csv
 
@@ -267,17 +252,12 @@ goods.csv
 
 #### Dev Foundry Configuration
 
-I recommend setting up a foundry dev environment. This should entail copying
-your FoundryVTT folder and making a new folder, say `DevFoundryVTT`. Then modify
-the `dataPath` located in the file `FoundryVTT/Config/options.json` to reflect
-the new base folder `DevFoundryVTT`. Now when you launch Foundry, you should
-have an environment free from your standard game sessions. I recommend removing
-any extra modules and setting up a clean 'hello world' to test in.
+I recommend setting up a foundry dev environment. This should entail copying your FoundryVTT folder and making a new folder, say `DevFoundryVTT`. Then modify the `dataPath` located in the file `FoundryVTT/Config/options.json` to reflect the new base folder `DevFoundryVTT`. Now when you launch Foundry, you should
+have an environment free from your standard game sessions. I recommend removing any extra modules and setting up a clean 'hello world' to test in.
 
 #### Installing this module
 
-Clone the repository to your system, and ensure you have NPM and Node installed
-and up to date.
+Clone the repository to your system, and ensure you have NPM and Node installed and up to date.
 
 To install the dependencies, run the following from the project directory:
 
@@ -307,9 +287,7 @@ drwxrwxr-x     - ubuntu  8 Feb 20:21   -I  styles
 drwxrwxr-x     - ubuntu  8 Feb 20:21   -I  templates
 ```
 
-You can now symlink this module into you DevFoundry addon repo with the
-following command. Run the command from the modules directory of your dev
-foundry installation:
+You can now symlink this module into you DevFoundry addon repo with the following command. Run the command from the modules directory of your dev foundry installation:
 
 ```sh
 ln -s <PROJECT-DIR>/dist foundry-vtt-content-parser
@@ -325,72 +303,18 @@ You should now be able to view, enable, and use the module from within Foundry.
 
 ### Testing Components
 
-Most logic that doesn't directly interface with Foundry is easily testible, and
-tests should be written for all additional logic.
+Most logic that doesn't directly interface with Foundry is easily testible, and tests should be written for all additional logic.
 
 If you add a function, there should be a test that corresponds.
 
-Tests are located in the `test` directory, place your tests corresponding to
-the structure for a file you are adding, for example a new parser for bulk markdowns
-should have tests located at `test/actor/parsers/markDownBulk.test.ts`
+Tests are located in the `test` directory, place your tests corresponding to the structure for a file you are adding, for example a new parser for bulk markdowns should have tests located at `test/actor/parsers/markDownBulk.test.ts`
 
-To get test input, you can paste your data into the input box for the tool on
-foundry, open up the 'developer tools', and then copy the data that is logged
-in the console. This test data can be directly pasted as a string and used to
-validate any logic that is added.
-
----
-
-### Adding a parser
-
-The current parsers are wtcTextBlock parsers, which attempt to convert blocks
-of text that resemble a Wizards of the Coast Monster Block into the discrete
-actor elements.
-
-To add a parser, create a file in `src/module/actor/parsers/yourNewParser.ts`
-and a corresponding test file `test/actor/parsers/yourNewParser.test.ts`
-
-Now you can define a parser, such as for parsing a name. You can find the list
-of potential parsers and their expected types in the file `src/module/actor/parserTypes.ts`
-
-Now you can create your new parser for a name:
-
-```ts
-export const nameParserHelloWorld: NameParser = (lines) => {
-  if (lines[0] === 'Hello') return 'Hello, World!'
-  throw new Error('Have not implemented parser yet!');
-};
-```
-
-and add it to the list of availble name parsers parsers in `src/module/actor/parsers/available.ts`
-
-and you can create your new test for your parser in `test/actor/parsers/yourNewParser.test.ts`
-
-```ts
-describe('nameParserHelloWorld', () => {
-  it('should return hello world', () => {
-    const testInput = ['Hello']
-    expect(nameParserHelloWorld(testInput)).toEqual('Hello, World!')
-  });
-  it('should throw an error with invalid input', () => {
-    const invalidInput = ['invalid']
-    expect(() => nameParserHelloWorld(invalidInput)).toThrow();
-  })
-})
-```
-
-If you want to test all of the parsers  working together, or pass an entire
-stat block to all parsers, you can import and pass your test to `textToActor`,
-which is the top level function that is called when input is recieved by the
-module.
+To get test input, you can paste your data into the input box for the tool on foundry, open up the 'developer tools', and then copy the data that is logged in the console. This test data can be directly pasted as a string and used to validate any logic that is added.
 
 ### FAQ
 
-Q: The project wont let me commit and is throwing errors, whats up?
-A: The project uses eslint to validate the code style. Running `npm run lint -- --fix`
-should fix your issues.
+Q: The project won't let me commit and is throwing errors, whats up?
+A: The project uses eslint to validate the code style. Running `npm run lint -- --fix` should fix your issues.
 
 Q: The module isn't showing up in Foundry after I symlink the dist folder.
-A: Make sure you can see the dist folder contents in your modules directory,
-and make sure the name is an exact match. If the directory name doesn't match
-the module.json it won't show up as a Foundry addon.
+A: Make sure you can see the dist folder contents in your modules directory, and make sure the name is an exact match. If the directory name doesn't match the module.json it won't show up as a Foundry addon.
