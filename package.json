@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "roll-table-importer",
-  "title": "Roll Tables Importer",
+  "title": "Roll Table Importer",
   "description": "Import Foundry roll tables from external sources",
   "version": "0.0.1",
   "license": "",

@@ -1,15 +1,15 @@
-# Roll Tables Importer
+# Roll Table Importer
 
 ![GitHub all releases](https://img.shields.io/github/downloads/jendave/roll-table-importer/total)
 [![Latest Version](https://img.shields.io/github/v/release/jendave/roll-table-importer?display_name=tag&sort=semver&label=Latest%20Version)](https://github.com/jendave/augmented-reality-foundry/releases/latest)
 ![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Froll-table-importer%2Fmain%2Fsrc%2Fmodule.json)
 [![License](https://img.shields.io/github/license/jendave/roll-table-importer)](LICENSE)
 
-Create foundry elements from external sources.
+Create Foundry VTT roll tables from external sources.
 
 ## Usage
 
-1. Press import button in tab you are trying to import
+1. Press `Import Tables` button in Roll Tables tab
 2. Copy text of entry you are trying to import
 3. Paste in the clipboard text area
 4. Press okay
@@ -17,7 +17,7 @@ Create foundry elements from external sources.
 
 ## Demos
 
-* Import a table from reddit.com/r/BehindTheTables*
+* Import a table from reddit.com/r/BehindTheTables
 
 ![Table Importing from Reddit](https://media4.giphy.com/media/qeiKk0SSvOPngZpca0/giphy.gif?cid=790b761108da49b64336e28d589d0dd28259b61333b5f74e&rid=giphy.gif&ct=g)
 

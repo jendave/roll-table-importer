@@ -13,6 +13,7 @@ export interface TableEntry {
 export interface FoundryTable {
   name: string;
   formula: string;
+  description: string;
   results: TableEntry[];
 }
 
@@ -45,10 +46,11 @@ export function parseBasicJSON({ name, entries }: BasicTable) {
   };
 }
 
-export function parseFoundryJSON({ name, formula, results }: FoundryTable) {
+export function parseFoundryJSON({ name, formula, description, results }: FoundryTable) {
   return {
     name: name,
     formula,
+    description,
     results: [...results],
   };
 }
@@ -136,6 +138,7 @@ export const parseFromTxt: TableParser = (input: string) => {
   return {
     name: nameFromFile(name),
     formula: formula ?? formulaFromEntries(results),
+    description: '',
     results,
   };
 };
