@@ -3,7 +3,7 @@
   "name": "roll-table-importer",
   "title": "Roll Table Importer",
   "description": "Import Foundry roll tables from external sources",
-  "version": "0.0.1",
+  "version": "#{VERSION}#",
   "authors": [
     {
       "name": "David Y. Hudson",
@@ -38,9 +38,9 @@
   "manifest": "#{MANIFEST}#",
   "url": "#{URL}#",
   "download": "#{DOWNLOAD}#",
-  "license": "GPL3",
-  "readme": "",
-  "bugs": "",
-  "changelog": "",
+  "license": "https://raw.githubusercontent.com/jendave/roll-table-importer/main/LICENSE",
+  "readme": "https://raw.githubusercontent.com/jendave/roll-table-importer/main/README.md",
+  "bugs": "https://github.com/jendave/roll-table-importer/issues",
+  "changelog": "https://raw.githubusercontent.com/jendave/roll-table-importer/main/CHANGELOG.md",
   "library": false
 }

@@ -37,10 +37,6 @@ Import tables from:
 * Import CSV files (first column treated as roll hits)
 * Import from JSON (a few different structures to suite needs, easy to generate from scripts)
 
-#### NOTE
-
-Importing Reddit table collections are great when paired with the [Table Ninja](https://github.com/Adriannom/fvtt-module-table-ninja) module.
-
 ## Have an issue?
 
 Open an issue [here](https://github.com/jendave/roll-table-importer/issues)
