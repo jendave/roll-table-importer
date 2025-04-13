@@ -196,9 +196,11 @@ export function parseMultiLineWeighted(inputTable: string) {
     return acc;
   }, []);
   const formula = formulaFromEntries(entries);
+  const description = '';
   return {
     name,
     formula,
+    description,
     results: entries,
   };
 }

@@ -50,6 +50,7 @@ export function isRedditCollection(userInput: string) {
 export function applyWeights(name: string, lines: string[]): FoundryTable {
   let results: TableEntry[] | undefined = undefined;
   let formula = `1d${lines.length}`;
+  const description = '';
   if (hasWeights(lines[0])) {
     results = lines.map(addWeight);
     formula = formulaFromEntries(results);
@@ -64,6 +65,7 @@ export function applyWeights(name: string, lines: string[]): FoundryTable {
   return {
     name,
     formula,
+    description,
     results,
   };
 }
