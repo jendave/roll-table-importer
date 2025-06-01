@@ -17,7 +17,13 @@ export function parseWeightedTable(userInput: string): FoundryTable {
     rawName = lines.shift() || 'No Name';
   }
   const name = cleanName(rawName);
-  return applyWeights(name, lines);
+  let description = '';
+  if (lines[0].startsWith('###')) {
+    const rawDescription = lines.shift() || '';
+    const replacedDescription = rawDescription.replace('###', '').trim().replace('\\n', '</p><p>').trim();
+    description = replacedDescription || '';
+  }
+  return applyWeights(name, description, lines);
 }
 
 export interface TableCollection {
@@ -47,10 +53,9 @@ export function isRedditCollection(userInput: string) {
   return parsed.collection.length > 1 && userInput.split(/\nd[0-9]{1,2}/).length > 1;
 }
 
-export function applyWeights(name: string, lines: string[]): FoundryTable {
+export function applyWeights(name: string, description: string, lines: string[]): FoundryTable {
   let results: TableEntry[] | undefined = undefined;
   let formula = `1d${lines.length}`;
-  const description = '';
   if (hasWeights(lines[0])) {
     results = lines.map(addWeight);
     formula = formulaFromEntries(results);
@@ -76,7 +81,16 @@ export function parseRedditTable(userInput: string): FoundryTable {
   const rawName = lines.shift() || 'No Name';
   const replacedName = rawName.replace(/d[0-9]{1,3}/, '').replace(/[0-9]{1,3}/, '');
   const name = replacedName.trim();
-  return applyWeights(name, lines);
+  let description = '';
+  if (lines[0].startsWith('###')) {
+    const rawDescription = lines.shift() || '';
+    const replacedDescription = rawDescription.replace('###', '').trim().replace('\\n', '</p><p>').trim();
+    description = replacedDescription || '';
+  }
+  if (lines.length === 0) {
+    throw new Error('No lines found in the table');
+  }
+  return applyWeights(name, description, lines);
 }
 
 export function parseRedditCollection(userInput: string): TableCollection {

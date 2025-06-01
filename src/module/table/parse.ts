@@ -115,6 +115,10 @@ export const parseFromTxt: TableParser = (input: string) => {
     }
     formula = trimDieLine(dieLine);
   }
+  let description = '';
+  if (lines[0].startsWith('###')) {
+    description = lines.shift()?.replace('#', '').trim() || '';
+  }
   let results;
   if (numWeighted > 0) {
     // remove any lines until we find the first line with weights
@@ -138,7 +142,7 @@ export const parseFromTxt: TableParser = (input: string) => {
   return {
     name: nameFromFile(name),
     formula: formula ?? formulaFromEntries(results),
-    description: '',
+    description: description,
     results,
   };
 };
