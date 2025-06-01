@@ -19,7 +19,7 @@ export class ImportGenericForm extends FormApplication {
   }
 
   async _updateObject(_: Event, formData?: object): Promise<unknown> {
-    if (!formData || formData === {}) return;
+    if (!formData) return;
     const data = formData as HTMLImportData;
     console.log(`data: ${JSON.stringify(data, null, 2)}`);
     this.handler(data as UserData);
