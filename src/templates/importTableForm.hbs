@@ -1,9 +1,9 @@
 <form>
   <div class="form-group row">
-    <label for="jsonfile">JSON File:</label>
+    <label for="jsonfile">Table File:</label>
     <div class="form-fields row">
-      {{filePicker target="jsonfile"}}
-      <input type="text" name="jsonfile" placeholder="path/file.json" value="{{object.jsonfile}}" />
+
+      <file-picker type="text" name="jsonfile" placeholder="path/file.{json/csv/txt}" value="{{object.jsonfile}}" />
     </div>
   </div>
   <div class="form-group textentry" overflow="scroll">
