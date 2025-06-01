@@ -15,8 +15,6 @@ Create Foundry VTT roll tables from external sources.
 4. Click `Okay`
 5. Tweak and use imported data
 
-## Support
-
 ## Key Features
 
 ### Tables
@@ -30,12 +28,6 @@ Import tables from:
 * Import text files (new lines are table entries)
 * Import CSV files (first column treated as roll hits)
 * Import from JSON (a few different structures to suite needs, easy to generate from scripts)
-
-## Have an issue?
-
-Open an issue [here](https://github.com/jendave/roll-table-importer/issues)
-
-Sample data that I have for testing parsers is limited. If you have sample data that is not working, please open an issue and I can add it to my tests and update the parsers.
 
 ## Roll Tables
 
@@ -180,3 +172,46 @@ goods.csv
 11|Cloth
 12|Rope
 ```
+
+## Support
+
+For questions, feature requests or bug reports, please open an [issue](https://github.com/jendave/token-note-hover/issues).
+
+[Pull requests](https://github.com/jendave/token-note-hover/pulls) are welcome. Please include a reason for the request or create an issue before starting one.
+
+## Contact
+
+* [Ironsworn/Starforged Discord Server - FoundryVTT Channel](https://discord.com/channels/437120373436186625/867434336201605160) (jendave)
+* [FoundryVTT Discord Server - Module Discussion Channel](https://discord.com/channels/170995199584108546/513918036919713802) (jendave)
+* [VOID Affiliate Network Discord Server - Game Hacks Channel](https://discord.com/channels/1222986351272787990/1222986351792619687) (jendave)
+* [GitHub Repository](https://github.com/jendave/augmented-reality-foundry)
+* [Itch.io](https://jendave.itch.io/)
+
+## Credits
+
+Module by David Hudson and licensed for use under the [MIT license](https://opensource.org/license/mit/).
+
+This project is based on [foundryvtt-importer](https://github.com/EthanJWright/foundryvtt-importer) by [Ethan J Wright](https://github.com/EthanJWright).
+
+## FoundryVTT Modules and Other Resources
+
+Please check out my other modules and resources for Ironsworn, Ironsworn: Starforged and other systems.
+
+### [FoundryVTT](https://foundryvtt.com/community/david-hudson/packages) Modules
+
+* [Starforged Custom Compendiums](https://foundryvtt.com/packages/starforged-custom-oracles)
+* [Starsmith Compendiums for Ironsworn: Starforged](https://foundryvtt.com/packages/starsmith-expanded-oracles)
+* [Ironsmith Expanded Oracles for Ironsworn](https://foundryvtt.com/packages/ironsmith-expanded-oracles)
+* [Augmented Reality Cyberpunk City Kit](https://foundryvtt.com/packages/augmented-reality-foundry)
+* [Token Note Hover](https://github.com/jendave/token-note-hover)
+* [Token Action HUD Ironsworn](https://foundryvtt.com/packages/token-action-hud-ironsworn)
+* [VOID 1680 AM for FoundryVTT](https://foundryvtt.com/packages/void-1680-am)
+* [Ancient Wonders](https://foundryvtt.com/packages/ancient-wonders)
+
+### [Itch.io](https://jendave.itch.io/) Resources
+
+* [The City on the Breeze - Cyberpunk-inspired Oracle arrays](https://jendave.itch.io/the-city-on-the-breeze)
+* [I'll Be Home for Life Day! - Star Wars Life Day Oracle](https://jendave.itch.io/ill-be-home-for-life-day)
+* [Critical Success Oracles](https://jendave.itch.io/critical-success-oracles)
+* [I Owe My Soul to the Company Planet Oracles](https://jendave.itch.io/i-owe-my-soul-to-the-company-planet)
+* [Creature Rank Generator](https://jendave.itch.io/creature-rank-generator)
