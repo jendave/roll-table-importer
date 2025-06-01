@@ -60,6 +60,15 @@ A palace.
 A storage vault.
 A sewer.
 A maze.
+
+d100 Six
+### Six Planetary Orbits \n Secondline \n Third line
+1-16   1st
+17-32  2nd
+33-49  3rd
+50-66  4th
+67-83  5th
+84-100 6th
 ```
 
 Or multiple tables can be part of a collection, which will be placed in a folder:
