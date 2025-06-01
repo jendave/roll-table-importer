@@ -20,7 +20,7 @@ export interface FoundryTable {
 export interface BasicTable {
   name: string;
   description: string;
-  entries: string[];
+  results: string[];
 }
 
 export function isFoundryTable(table: FoundryTable | BasicTable) {
@@ -38,8 +38,8 @@ const entryStringMap = (current: string, index: number): TableEntry => {
   };
 };
 
-export function parseBasicJSON({ name, description, entries }: BasicTable) {
-  const results = entries.map(entryStringMap);
+export function parseBasicJSON({ name, description, results }: BasicTable) {
+  const resultsParsed = results.map(entryStringMap);
   if (description === undefined) {
     description = '';
   } else if (description === null) {
@@ -49,8 +49,8 @@ export function parseBasicJSON({ name, description, entries }: BasicTable) {
   return {
     name: name,
     description: replacedDescription || '',
-    formula: formulaFromEntries(results),
-    results,
+    formula: formulaFromEntries(resultsParsed),
+    results: resultsParsed,
   };
 }
 
@@ -185,13 +185,13 @@ const entryCSVMap = (current: string): TableEntry => {
 };
 
 export function parseFromCSV(table: BasicTable) {
-  const { name, description, entries } = table;
-  const results = entries.map(entryCSVMap);
+  const { name, description, results } = table;
+  const resultsParsed = results.map(entryCSVMap);
   return {
     name: nameFromFile(name),
     description: description || '',
-    formula: formulaFromEntries(results),
-    results,
+    formula: formulaFromEntries(resultsParsed),
+    results: resultsParsed,
   };
 }
 

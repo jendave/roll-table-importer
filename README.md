@@ -149,7 +149,7 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 {
   "name": "Goods",
   "description": "List of equipment \n Second Line",
-  "entries": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope"]
+  "results": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope"]
 }
 ```
 
