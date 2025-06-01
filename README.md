@@ -137,7 +137,8 @@ A structure similar to Foundry's interface for tables is valid:
     { "range": [5, 6], "text": "Baskets" },
     { "range": [7, 8], "text": "Bricks" },
     { "range": [9, 10], "text": "Books" },
-    { "range": [11, 12], "text": "Cloth" }
+    { "range": [11], "text": "Cloth" },
+    { "range": [12], "text": "Rope" }
   ]
 }
 ```
@@ -148,7 +149,7 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 {
   "name": "Goods",
   "description": "Equipment",
-  "results": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth"]
+  "entries": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope"]
 }
 ```
 
@@ -179,7 +180,8 @@ goods.csv
 05-06|Baskets
 07-08|Bricks
 09-10|Books
-11-12|Cloth
+11|Cloth
+12|Rope
 ```
 
 ### Dev Environment

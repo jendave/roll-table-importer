@@ -173,10 +173,11 @@ const entryCSVMap = (current: string): TableEntry => {
 };
 
 export function parseFromCSV(table: BasicTable) {
-  const { name, entries } = table;
+  const { name, description, entries } = table;
   const results = entries.map(entryCSVMap);
   return {
     name: nameFromFile(name),
+    description: description || '',
     formula: formulaFromEntries(results),
     results,
   };

@@ -58,7 +58,7 @@ async function txtRoute(stringData: string) {
 async function csvRoute(fullFileName: string, data: string) {
   console.log(`CSV Data: ${data}`);
   const lines = breakLines(data);
-  const parse = parseFromCSV({ name: fullFileName, entries: lines });
+  const parse = parseFromCSV({ name: fullFileName, description: '', results: lines });
   await RollTable.create(parse);
 }
 
