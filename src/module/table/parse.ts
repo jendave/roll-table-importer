@@ -19,6 +19,7 @@ export interface FoundryTable {
 
 export interface BasicTable {
   name: string;
+  description: string;
   entries: string[];
 }
 
@@ -37,10 +38,11 @@ const entryStringMap = (current: string, index: number): TableEntry => {
   };
 };
 
-export function parseBasicJSON({ name, entries }: BasicTable) {
+export function parseBasicJSON({ name, description, entries }: BasicTable) {
   const results = entries.map(entryStringMap);
   return {
     name: name,
+    description: description || '',
     formula: formulaFromEntries(results),
     results,
   };

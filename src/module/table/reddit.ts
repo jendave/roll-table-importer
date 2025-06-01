@@ -20,7 +20,7 @@ export function parseWeightedTable(userInput: string): FoundryTable {
   let description = '';
   if (lines[0].startsWith('###')) {
     const rawDescription = lines.shift() || '';
-    const replacedDescription = rawDescription.replace('###', '').trim().replace('\\n', '</p><p>').trim();
+    const replacedDescription = rawDescription.replace(/###/, '').trim().replace(/\\n/g, '</p><p>').trim();
     description = replacedDescription || '';
   }
   return applyWeights(name, description, lines);
@@ -84,7 +84,7 @@ export function parseRedditTable(userInput: string): FoundryTable {
   let description = '';
   if (lines[0].startsWith('###')) {
     const rawDescription = lines.shift() || '';
-    const replacedDescription = rawDescription.replace('###', '').trim().replace('\\n', '</p><p>').trim();
+    const replacedDescription = rawDescription.replace(/###/, '').trim().replace(/\\n/g, '</p><p>').trim();
     description = replacedDescription || '';
   }
   if (lines.length === 0) {

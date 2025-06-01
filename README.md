@@ -15,12 +15,6 @@ Create Foundry VTT roll tables from external sources.
 4. Click `Okay`
 5. Tweak and use imported data
 
-## Demos
-
-* Import a table from reddit.com/r/BehindTheTables
-
-![Table Importing from Reddit](https://media4.giphy.com/media/qeiKk0SSvOPngZpca0/giphy.gif?cid=790b761108da49b64336e28d589d0dd28259b61333b5f74e&rid=giphy.gif&ct=g)
-
 ## Support
 
 ## Key Features
@@ -55,26 +49,17 @@ A single table can be created:
 
 ```txt
 d10 This place is (or was) a...
-
-    A stronghold.
-
-    A temple.
-
-    A tomb.
-
-    A prison.
-
-    A mine.
-
-    A lair.
-
-    A palace.
-
-    A storage vault.
-
-    A sewer.
-
-    A maze.
+### Location
+A stronghold.
+A temple.
+A tomb.
+A prison.
+A mine.
+A lair.
+A palace.
+A storage vault.
+A sewer.
+A maze.
 ```
 
 Or multiple tables can be part of a collection, which will be placed in a folder:
@@ -83,104 +68,59 @@ Or multiple tables can be part of a collection, which will be placed in a folder
 Random Dungeons
 
 d10 This place is (or was) a...
-
-    A stronghold.
-
-    A temple.
-
-    A tomb.
-
-    A prison.
-
-    A mine.
-
-    A lair.
-
-    A palace.
-
-    A storage vault.
-
-    A sewer.
-
-    A maze.
+### Location \n Test
+A stronghold.
+A temple.
+A tomb.
+A prison.
+A mine.
+A lair.
+A palace.
+A storage vault.
+A sewer.
+A maze.
 
 d12 ...built by...
-
-    An ancient dwarvish clan.
-
-    An ancient elf prince.
-
-    A powerful wizard.
-
-    A dark sorceress.
-
-    A foreign empire.
-
-    An ambitious queen of old.
-
-    Prosperous merchants.
-
-    A powerful noble family.
-
-    Religious zealots.
-
-    An ancient race of giants.
-
-    A tyrannical king of old.
-
-    No one; it's a natural cave.
+An ancient dwarvish clan.
+An ancient elf prince.
+A powerful wizard.
+A dark sorceress.
+A foreign empire.
+An ambitious queen of old.
+Prosperous merchants.
+A powerful noble family.
+Religious zealots.
+An ancient race of giants.
+A tyrannical king of old.
+No one; it's a natural cave.
 
 d12 ...and located...
-
-    Beneath a cold mountain.
-
-    Beneath a fiery mountain.
-
-    Near a well-traveled mountain pass.
-
-    Deep within a forest.
-
-    Deep within a desert.
-
-    Beside the sea.
-
-    On an island.
-
-    Beneath a bustling city.
-
-    Beneath the ruin of an ancient city.
-
-    Beneath a well-known castle or monastery.
-
-    Beneath a the ruin of an old castle or monastery.
-
-    In a place reachable only by magic.
+Beneath a cold mountain.
+Beneath a fiery mountain.
+Near a well-traveled mountain pass.
+Deep within a forest.
+Deep within a desert.
+Beside the sea.
+On an island.
+Beneath a bustling city.
+Beneath the ruin of an ancient city.
+Beneath a well-known castle or monastery.
+Beneath a the ruin of an old castle or monastery.
+In a place reachable only by magic.
 
 d12 The place is currently occupied by...
-
-    A dangerous outlaw.
-
-    An elemental lord.
-
-    A vampire.
-
-    A lich.
-
-    A demon.
-
-    A devil.
-
-    An orc warlord.
-
-    A hobgoblin commander.
-
-    An aberrant presence.
-
-    A witch.
-
-    A giant.
-
-    A dragon.
+A dangerous outlaw.
+An elemental lord.
+A vampire.
+A lich.
+A demon.
+A devil.
+An orc warlord.
+A hobgoblin commander.
+An aberrant presence.
+A witch.
+A giant.
+A dragon.
 ```
 
 ### JSON
@@ -191,6 +131,7 @@ A structure similar to Foundry's interface for tables is valid:
 {
   "name": "Goods",
   "formula": "1d12",
+  "description": "Equipment",
   "results": [
     { "range": [1, 4], "text": "Backpacks or sacks" },
     { "range": [5, 6], "text": "Baskets" },
@@ -206,6 +147,7 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 ```json
 {
   "name": "Goods",
+  "description": "Equipment",
   "results": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth"]
 }
 ```
@@ -217,11 +159,13 @@ A .txt file can be used to create a roll table, the importer will just treat eac
 goods.txt :
 
 ```txt
+### Goods
 Backpacks or sacks
 Baskets
 Bricks
 Books
 Cloth
+Rope
 ```
 
 ### CSVs
@@ -237,12 +181,6 @@ goods.csv
 09-10|Books
 11-12|Cloth
 ```
-
-## Plans for future implementation
-
-* Make settings more configurable (to hide unused elements)
-* Make parsers more modular to allow for easy extensibility
-* Export to compendium. I can see people using this to import work from larger datasets and wanting to share or add them to modules.
 
 ### Dev Environment
 

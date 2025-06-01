@@ -14,6 +14,7 @@ import {
   TableData,
 } from './parse';
 import { breakLines } from './lineManipulators';
+
 async function createTableFromJSON(tableJSON: FoundryTable | BasicTable) {
   let parsed: TableData | undefined;
   if (isFoundryTable(tableJSON)) {
