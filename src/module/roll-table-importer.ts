@@ -12,6 +12,14 @@ Hooks.on('renderSidebarTab', (settings: Settings) => {
   }
 });
 
+Hooks.on('activateRollTableDirectory', (settings: Settings) => {
+  if (!(game as Game)?.user?.isGM) return;
+  const config = Config._load();
+  if (config.tableImporter) {
+    renderSidebarButtons(settings, 'tables', processTableJSON);
+  }
+});
+
 // Initialize module
 Hooks.once('init', async () => {
   console.log(`${CONSTANTS.module.name} | Initializing ${CONSTANTS.module.title}`);

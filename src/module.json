@@ -17,11 +17,11 @@
     }
   ],
   "minimumCoreVersion": "12",
-  "compatibleCoreVersion": "12",
+  "compatibleCoreVersion": "13",
   "compatibility": {
     "minimum": "12",
-    "verified": "12",
-    "maximum": "12"
+    "verified": "13",
+    "maximum": "13"
   },
   "scripts": [],
   "esmodules": ["module/roll-table-importer.js"],
