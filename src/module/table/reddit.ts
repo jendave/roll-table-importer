@@ -34,7 +34,7 @@ export interface TableCollection {
 export function isRedditTable(userInput: string): boolean {
   const parsed = parseWeightedTable(userInput);
   parsed.results.forEach((entry: TableEntry) => {
-    if (entry.range[0] === NaN || entry.range[1] === NaN) {
+    if (Number.isNaN(entry.range[0]) || Number.isNaN(entry.range[1])) {
       return false;
     }
   });
@@ -45,7 +45,7 @@ export function isRedditCollection(userInput: string) {
   const parsed = parseRedditCollection(userInput);
   parsed.collection.forEach((table) => {
     table.results.forEach((entry) => {
-      if (entry.range[0] === NaN || entry.range[1] === NaN) {
+      if (Number.isNaN(entry.range[0]) || Number.isNaN(entry.range[1])) {
         return false;
       }
     });

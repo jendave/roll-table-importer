@@ -48,8 +48,8 @@ The table tool comes with a text box where you can copy/paste tables from the [B
 A single table can be created:
 
 ```txt
-d10 This place is (or was) a...
-### Location
+d10 This place is a...
+### Type of Location \n Has the location falled into disrepair?
 A stronghold.
 A temple.
 A tomb.
@@ -67,20 +67,22 @@ Or multiple tables can be part of a collection, which will be placed in a folder
 ```txt
 Random Dungeons
 
-d10 This place is (or was) a...
-### Location \n Test
-A stronghold.
-A temple.
-A tomb.
-A prison.
-A mine.
-A lair.
-A palace.
-A storage vault.
-A sewer.
-A maze.
+d12 The place is currently occupied by...
+### Location is filled with enemies \n Roll multiple times
+A dangerous outlaw.
+An elemental lord.
+A vampire.
+A lich.
+A demon.
+A devil.
+An orc warlord.
+A hobgoblin commander.
+An aberrant presence.
+A witch.
+A giant.
+A dragon.
 
-d12 ...built by...
+d12 This place was built by...
 An ancient dwarvish clan.
 An ancient elf prince.
 A powerful wizard.
@@ -107,20 +109,6 @@ Beneath the ruin of an ancient city.
 Beneath a well-known castle or monastery.
 Beneath a the ruin of an old castle or monastery.
 In a place reachable only by magic.
-
-d12 The place is currently occupied by...
-A dangerous outlaw.
-An elemental lord.
-A vampire.
-A lich.
-A demon.
-A devil.
-An orc warlord.
-A hobgoblin commander.
-An aberrant presence.
-A witch.
-A giant.
-A dragon.
 ```
 
 ### JSON
@@ -148,7 +136,7 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 ```json
 {
   "name": "Goods",
-  "description": "List of equipment \n Second Line",
+  "description": "List of equipment \n Non-magical",
   "results": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope"]
 }
 ```
