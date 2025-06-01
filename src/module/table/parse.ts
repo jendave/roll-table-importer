@@ -40,19 +40,31 @@ const entryStringMap = (current: string, index: number): TableEntry => {
 
 export function parseBasicJSON({ name, description, entries }: BasicTable) {
   const results = entries.map(entryStringMap);
+  if (description === undefined) {
+    description = '';
+  } else if (description === null) {
+    description = '';
+  }
+  const replacedDescription = description.replace(/\n/g, '</p><p>').trim();
   return {
     name: name,
-    description: description || '',
+    description: replacedDescription || '',
     formula: formulaFromEntries(results),
     results,
   };
 }
 
 export function parseFoundryJSON({ name, formula, description, results }: FoundryTable) {
+  if (description === undefined) {
+    description = '';
+  } else if (description === null) {
+    description = '';
+  }
+  const replacedDescription = description.replace(/\n/g, '</p><p>').trim();
   return {
     name: name,
     formula,
-    description,
+    description: replacedDescription || '',
     results: [...results],
   };
 }

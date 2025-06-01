@@ -131,14 +131,14 @@ A structure similar to Foundry's interface for tables is valid:
 {
   "name": "Goods",
   "formula": "1d12",
-  "description": "Equipment",
+  "description": "List of equipment \n Second Line",
   "results": [
     { "range": [1, 4], "text": "Backpacks or sacks" },
     { "range": [5, 6], "text": "Baskets" },
     { "range": [7, 8], "text": "Bricks" },
     { "range": [9, 10], "text": "Books" },
-    { "range": [11], "text": "Cloth" },
-    { "range": [12], "text": "Rope" }
+    { "range": [11, 11], "text": "Cloth" },
+    { "range": [12, 12], "text": "Rope" }
   ]
 }
 ```
@@ -148,7 +148,7 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 ```json
 {
   "name": "Goods",
-  "description": "Equipment",
+  "description": "List of equipment \n Second Line",
   "entries": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope"]
 }
 ```
@@ -160,7 +160,7 @@ A .txt file can be used to create a roll table, the importer will just treat eac
 goods.txt :
 
 ```txt
-### Goods
+### List of equipment
 Backpacks or sacks
 Baskets
 Bricks
@@ -171,7 +171,7 @@ Rope
 
 ### CSVs
 
-A .csv can be used for a roll table. as commas are quite common in text that will appear in roll tables, the pipe is used as the delimiter instead (|) The file name will be used for the table name.
+A .csv can be used for a roll table. As commas are quite common in text that will appear in roll tables, the pipe is used as the delimiter instead (|). The file name will be used for the table name. A .csv file cannot use the description field.
 
 goods.csv
 
@@ -183,74 +183,3 @@ goods.csv
 11|Cloth
 12|Rope
 ```
-
-### Dev Environment
-
-#### Dev Foundry Configuration
-
-I recommend setting up a foundry dev environment. This should entail copying your FoundryVTT folder and making a new folder, say `DevFoundryVTT`. Then modify the `dataPath` located in the file `FoundryVTT/Config/options.json` to reflect the new base folder `DevFoundryVTT`. Now when you launch Foundry, you should
-have an environment free from your standard game sessions. I recommend removing any extra modules and setting up a clean 'hello world' to test in.
-
-#### Installing this module
-
-Clone the repository to your system, and ensure you have NPM and Node installed and up to date.
-
-To install the dependencies, run the following from the project directory:
-
-```sh
-npm i
-```
-
-Ensure everything installed and the tests are passing, run:
-
-```sh
-npm run test
-```
-
-Ensure you can build the project into a distributable package for Foundry:
-
-```sh
-npm run build
-```
-
-The build command should generate a `dist` repo with the following contents:
-
-```sh
-drwxrwxr-x     - ubuntu  8 Feb 20:21   -I  lang
-drwxrwxr-x     - ubuntu  8 Feb 20:21   -I  module
-.rw-rw-r--  1.0k ubuntu  8 Feb 20:21   -I  module.json
-drwxrwxr-x     - ubuntu  8 Feb 20:21   -I  styles
-drwxrwxr-x     - ubuntu  8 Feb 20:21   -I  templates
-```
-
-You can now symlink this module into you DevFoundry addon repo with the following command. Run the command from the modules directory of your dev foundry installation:
-
-```sh
-ln -s <PROJECT-DIR>/dist foundry-vtt-content-parser
-```
-
-For example, the command on my system looks like so:
-
-```sh
-ln -s ~/mygit/roll-table-importer/dist roll-table-importer
-```
-
-You should now be able to view, enable, and use the module from within Foundry.
-
-### Testing Components
-
-Most logic that doesn't directly interface with Foundry is easily testible, and tests should be written for all additional logic.
-
-If you add a function, there should be a test that corresponds.
-
-Tests are located in the `test` directory, place your tests corresponding to the structure for a file you are adding, for example a new parser for bulk markdowns should have tests located at `test/actor/parsers/markDownBulk.test.ts`
-
-To get test input, you can paste your data into the input box for the tool on foundry, open up the 'developer tools', and then copy the data that is logged in the console. This test data can be directly pasted as a string and used to validate any logic that is added.
-
-### FAQ
-
-Q: The project won't let me commit and is throwing errors, whats up?
-A: The project uses eslint to validate the code style. Running `npm run lint -- --fix` should fix your issues.
-
-Q: The module isn't showing up in Foundry after I symlink the dist folder.
-A: Make sure you can see the dist folder contents in your modules directory, and make sure the name is an exact match. If the directory name doesn't match the module.json it won't show up as a Foundry addon.
