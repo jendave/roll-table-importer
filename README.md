@@ -5,33 +5,30 @@
 ![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Froll-table-importer%2Fmain%2Fsrc%2Fmodule.json)
 [![License](https://img.shields.io/github/license/jendave/roll-table-importer)](LICENSE)
 
-Create Foundry VTT roll tables from external sources.
+## Features and Notes
 
-## Usage
-
-1. Click `Import Tables` button in Roll Tables tab
-2. Copy text of entry you are trying to import
-3. Paste in the clipboard text area
-4. Click `Okay`
-5. Tweak and use imported data
-
-## Key Features
-
-### Tables
-
-Import tables from external sources, creating quick collections.
+The `Roll Table Importer` module can create Foundry VTT roll tables from various kinds of text files.
 
 Import tables from:
 
-* Create many tables all nested in a folder from [Reddit](https://www.reddit.com/r/BehindTheTables)
-* Copy and paste data to be parsed (reddit, entries per line, csv, json, etc.)
-* Import text files (new lines are table entries)
-* Import CSV files (first column treated as roll hits)
-* Import from JSON (a few different structures to suite needs, easy to generate from scripts)
+* Create many tables all nested in a folder from text.
+* Copy and paste data to be parsed (text, CSV, JSON).
+* Import text, CSV and JSON files.
 
-## Roll Tables
+## Usage
 
-Tables can be imported from a JSON file with a simple structure, a txt file, or through a CSV file. Each method is documented below.
+![Screenshot](https://github.com/jendave/roll-table-importer/blob/main/docs/screenshot_dialog.jpg?raw=true)
+
+1. Click `Import Tables` button in Roll Tables tab in the sidebar.
+2. Enter text of roll table via clipboard or file chooser dialog
+   1. Copy text of entry you are trying to import and paste into the clipboard text area
+   2. Or use file icon to choose a file.
+3. Click `Okay`
+4. Roll table will appear in the Roll table sidebar
+
+## Roll Table Formats
+
+Tables can be imported from a JSON file, a txt file, or through a CSV file. Each method is documented below.
 
 ### Reddit
 
@@ -138,7 +135,7 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 {
   "name": "Goods",
   "description": "List of equipment \n Non-magical",
-  "results": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope"]
+  "results": [ "Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope" ]
 }
 ```
 
