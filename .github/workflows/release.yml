@@ -106,7 +106,7 @@ jobs:
         run: npm run build
 
       - name: Create zip file
-        run: (cd ./dist/token-note-hover && zip -r ./module.zip .)
+        run: (cd ./dist/roll-table-importer && zip -r ./module.zip .)
 
       # Update the GitHub release with the manifest and module archive files.
       - name: Update Release With Files
@@ -118,6 +118,6 @@ jobs:
           draft: ${{ github.event.release.unpublished }}
           prerelease: ${{ github.event.release.prerelease }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifacts: "./dist/token-note-hover/module.json, ./dist/token-note-hover/module.zip"
+          artifacts: "./dist/roll-table-importer/module.json, ./dist/roll-table-importer/module.zip"
           tag: ${{ github.event.release.tag_name }}
           body: ${{ github.event.release.body }}
