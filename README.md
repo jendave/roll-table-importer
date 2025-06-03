@@ -9,22 +9,21 @@
 
 The `Roll Table Importer` module can create Foundry VTT roll tables from various kinds of text files.
 
-Import tables from:
-
-* Create many tables all nested in a folder from text.
 * Copy and paste data to be parsed (text, CSV, JSON).
 * Import text, CSV and JSON files.
+* Create tables with descriptions and ranges.
+* Create several tables all nested in a folder from text.
 
 ## Usage
 
 ![Screenshot](https://github.com/jendave/roll-table-importer/blob/main/docs/screenshot_dialog.jpg?raw=true)
 
-1. Click `Import Tables` button in Roll Tables tab in the sidebar.
-2. Enter text of roll table via clipboard or file chooser dialog
-   1. Copy text of entry you are trying to import and paste into the clipboard text area
+1. Click `Import Tables` button in the `Rollable Tables` tab in the sidebar.
+2. Enter text of roll table via clipboard or choose a file using the file-picker
+   1. Copy text you are trying to import and paste into the clipboard text area
    2. Or use file icon to choose a file.
 3. Click `Okay`
-4. Roll table will appear in the Roll table sidebar
+4. Roll table will appear in the `Rollable Tables` tab.
 
 ## Roll Table Formats
 
@@ -36,7 +35,7 @@ A .txt file can be used to create a roll table. The filename will be used as the
 
 The roll table importer tool comes with a text box where you can copy/paste tables. The first line will be used as the `table name`. The `description` field must be marked with `###` at the beginning of the line. Newlines must be marked with `\n` as shown in the examples.
 
-If the ranges are not stated, the importer will determine the table ranges based on the number of items in the table. A die-type (such as d6 or d100) and ranges can also be specified.
+Die-type (such as d6 or d100) and ranges can be specified. If the ranges are not stated, the importer will determine the table ranges based on the number of items in the table.
 
 The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) is a good source for random tables.
 
