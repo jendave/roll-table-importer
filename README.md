@@ -32,13 +32,15 @@ Tables can be imported from a JSON file, a txt file, or a CSV file. Each method 
 
 ### Text File
 
-The table tool comes with a text box where you can copy/paste tables from the [Behind the Tables subreddit.](https://www.reddit.com/r/BehindTheTables)
+A .txt file can be used to create a roll table. The filename will be used as the `table name`. The importer will just treat each new line as an item in the table.
 
-A .txt file can be used to create a roll table. The importer will just treat each new line as an item in the table. The filename will be used as the `table name`. For pasted text, the first line will be used as the `table name`. The `description` field must be marked with `###` at the beginning of the line. Newlines must be marked with `\n` as shown in the examples.
+The roll table importer tool comes with a text box where you can copy/paste tables. The first line will be used as the `table name`. The `description` field must be marked with `###` at the beginning of the line. Newlines must be marked with `\n` as shown in the examples.
 
 If the ranges are not stated, the importer will determine the table ranges based on the number of items in the table. A die-type (such as d6 or d100) and ranges can also be specified.
 
-A simple single table can be created:
+The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) is a good source for random tables.
+
+A simple single table can be created (example from a file):
 
 goods.txt:
 
@@ -55,7 +57,7 @@ Rope
 
 ```txt
 d100 This place is...
-### Type of Location \n Has the location falled into disrepair?
+### Type of Location \n Has the location fallen into disrepair?
 1-10 A stronghold.
 11-20 A temple.
 21-35 A tomb.
@@ -74,7 +76,7 @@ Or multiple tables can be part of a collection, which will be placed in a folder
 Random Dungeons
 
 d12 The place is currently occupied by...
-### Location is filled with enemies \n Roll multiple times
+### Location is filled with enemies \n Roll multiple times on this table
 A dangerous outlaw.
 An elemental lord.
 A vampire.
@@ -102,7 +104,7 @@ An ancient race of giants.
 A tyrannical king of old.
 No one; it's a natural cave.
 
-d12 ...and located...
+d12 This place is located...
 Beneath a cold mountain.
 Beneath a fiery mountain.
 Near a well-traveled mountain pass.
@@ -127,7 +129,7 @@ A structure similar to Foundry's interface for tables is valid.
 {
   "name": "Goods",
   "formula": "1d12",
-  "description": "List of equipment \n Second Line",
+  "description": "List of equipment \n Non-magical",
   "results": [
     { "range": [1, 4], "text": "Backpacks or sacks" },
     { "range": [5, 6], "text": "Baskets" },

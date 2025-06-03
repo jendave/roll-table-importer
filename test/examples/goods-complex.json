@@ -1,7 +1,7 @@
 {
-  "name": "Goods",
+  "name": "Goods - Complex JSON",
   "formula": "1d12",
-  "description": "List of equipment \n Second Line",
+  "description": "List of equipment \n Non-magical",
   "results": [
     { "range": [1, 4], "text": "Backpacks or sacks" },
     { "range": [5, 6], "text": "Baskets" },

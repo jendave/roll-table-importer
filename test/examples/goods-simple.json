@@ -1,5 +1,5 @@
 {
-  "name": "Goods",
+  "name": "Goods - Simple JSON",
   "description": "List of equipment \n Non-magical",
   "results": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope"]
 }
