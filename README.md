@@ -28,36 +28,44 @@ Import tables from:
 
 ## Roll Table Formats
 
-Tables can be imported from a JSON file, a txt file, or through a CSV file. Each method is documented below.
+Tables can be imported from a JSON file, a txt file, or a CSV file. Each method is documented below.
 
-### Reddit
+### Text File
 
 The table tool comes with a text box where you can copy/paste tables from the [Behind the Tables subreddit.](https://www.reddit.com/r/BehindTheTables)
 
-A single table can be created:
+A .txt file can be used to create a roll table. The importer will just treat each new line as an item in the table. The filename will be used as the `table name`. For pasted text, the first line will be used as the `table name`. The `description` field must be marked with `###` at the beginning of the line. Newlines must be marked with `\n` as shown in the examples.
+
+If the ranges are not stated, the importer will determine the table ranges based on the number of items in the table. A die-type (such as d6 or d100) and ranges can also be specified.
+
+A simple single table can be created:
+
+goods.txt:
 
 ```txt
-d10 This place is a...
-### Type of Location \n Has the location falled into disrepair?
-A stronghold.
-A temple.
-A tomb.
-A prison.
-A mine.
-A lair.
-A palace.
-A storage vault.
-A sewer.
-A maze.
+Backpacks or sacks
+Baskets
+Bricks
+Books
+Cloth
+Rope
+```
 
-d100 Six
-### Six Planetary Orbits \n Secondline \n Third line
-1-16   1st
-17-32  2nd
-33-49  3rd
-50-66  4th
-67-83  5th
-84-100 6th
+`Table Name`, `Descrption` and `Ranges` can also be added.
+
+```txt
+d100 This place is...
+### Type of Location \n Has the location falled into disrepair?
+1-10 A stronghold.
+11-20 A temple.
+21-35 A tomb.
+36-40 A prison.
+41-55 A mine.
+55-70 A lair.
+71-75 A palace.
+76-80 A storage vault.
+81-90 A sewer.
+91-100 A maze.
 ```
 
 Or multiple tables can be part of a collection, which will be placed in a folder:
@@ -111,7 +119,9 @@ In a place reachable only by magic.
 
 ### JSON
 
-A structure similar to Foundry's interface for tables is valid:
+For JSON, both files and pasted text can be used by the importer.
+
+A structure similar to Foundry's interface for tables is valid.
 
 ```json
 {
@@ -139,25 +149,9 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 }
 ```
 
-### Text Files
+### CSV
 
-A .txt file can be used to create a roll table, the importer will just treat each new line as an item in the table. The filename will be used as the table name.
-
-goods.txt :
-
-```txt
-### List of equipment
-Backpacks or sacks
-Baskets
-Bricks
-Books
-Cloth
-Rope
-```
-
-### CSVs
-
-A .csv can be used for a roll table. As commas are quite common in text that will appear in roll tables, the pipe is used as the delimiter instead (|). The file name will be used for the table name. A .csv file cannot use the description field.
+Text in CSV format can be used for a roll table. The pipe (|) symbol is used as the delimiter since commas are common in tables. For a .csv file, the file name will be used for the `table name`. If the csv text was pasted into the dialog, the table will named "CSV Imported Table". The CSV importer cannot use the `table name` nor `description` fields.
 
 goods.csv
 
