@@ -10,7 +10,7 @@ const distDirectory = './dist';
 module.exports = {
   input: 'src/module/roll-table-importer.ts',
   output: {
-    dir: 'dist/module',
+    dir: 'dist/roll-table-importer/module',
     format: 'es',
     sourcemap: true,
   },

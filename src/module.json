@@ -2,7 +2,7 @@
   "id": "roll-table-importer",
   "name": "roll-table-importer",
   "title": "Roll Table Importer",
-  "description": "Import Foundry roll tables from external sources",
+  "description": "Import Foundry roll tables from text, JSON and CSV",
   "version": "#{VERSION}#",
   "authors": [
     {

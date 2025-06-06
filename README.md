@@ -5,62 +5,68 @@
 ![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Froll-table-importer%2Fmain%2Fsrc%2Fmodule.json)
 [![License](https://img.shields.io/github/license/jendave/roll-table-importer)](LICENSE)
 
-Create Foundry VTT roll tables from external sources.
+## Features and Notes
+
+The `Roll Table Importer` module can create Foundry VTT roll tables from various kinds of text files.
+
+* Copy and paste data to be parsed (text, CSV, JSON).
+* Import text, CSV and JSON files.
+* Create tables with descriptions and ranges.
+* Create several tables all nested in a folder from text.
 
 ## Usage
 
-1. Click `Import Tables` button in Roll Tables tab
-2. Copy text of entry you are trying to import
-3. Paste in the clipboard text area
-4. Click `Okay`
-5. Tweak and use imported data
+![Screenshot](https://github.com/jendave/roll-table-importer/blob/main/docs/screenshot_dialog.jpg?raw=true)
 
-## Key Features
+1. Click `Import Tables` button in the `Rollable Tables` tab in the sidebar.
+2. Enter text of roll table via clipboard or choose a file using the file-picker
+   1. Copy text you are trying to import and paste into the clipboard text area
+   2. Or use file icon to choose a file.
+3. Click `Okay`
+4. Roll table will appear in the `Rollable Tables` tab.
 
-### Tables
+## Roll Table Formats
 
-Import tables from external sources, creating quick collections.
+Tables can be imported from a JSON file, a txt file, or a CSV file. Each method is documented below.
 
-Import tables from:
+### Text File
 
-* Create many tables all nested in a folder from [Reddit](https://www.reddit.com/r/BehindTheTables)
-* Copy and paste data to be parsed (reddit, entries per line, csv, json, etc.)
-* Import text files (new lines are table entries)
-* Import CSV files (first column treated as roll hits)
-* Import from JSON (a few different structures to suite needs, easy to generate from scripts)
+A .txt file can be used to create a roll table. The filename will be used as the `table name`. The importer will just treat each new line as an item in the table.
 
-## Roll Tables
+The roll table importer tool comes with a text box where you can copy/paste tables. The first line will be used as the `table name`. The `description` field must be marked with `###` at the beginning of the line. Newlines must be marked with `\n` as shown in the examples.
 
-Tables can be imported from a JSON file with a simple structure, a txt file, or through a CSV file. Each method is documented below.
+Die-type (such as d6 or d100) and ranges can be specified. If the ranges are not stated, the importer will determine the table ranges based on the number of items in the table.
 
-### Reddit
+The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) is a good source for random tables.
 
-The table tool comes with a text box where you can copy/paste tables from the [Behind the Tables subreddit.](https://www.reddit.com/r/BehindTheTables)
+A simple single table can be created (example from a file):
 
-A single table can be created:
+goods.txt:
 
 ```txt
-d10 This place is a...
-### Type of Location \n Has the location falled into disrepair?
-A stronghold.
-A temple.
-A tomb.
-A prison.
-A mine.
-A lair.
-A palace.
-A storage vault.
-A sewer.
-A maze.
+Backpacks or sacks
+Baskets
+Bricks
+Books
+Cloth
+Rope
+```
 
-d100 Six
-### Six Planetary Orbits \n Secondline \n Third line
-1-16   1st
-17-32  2nd
-33-49  3rd
-50-66  4th
-67-83  5th
-84-100 6th
+`Table Name`, `Descrption` and `Ranges` can also be added.
+
+```txt
+d100 This place is...
+### Type of Location \n Has the location fallen into disrepair?
+1-10 A stronghold.
+11-20 A temple.
+21-35 A tomb.
+36-40 A prison.
+41-55 A mine.
+55-70 A lair.
+71-75 A palace.
+76-80 A storage vault.
+81-90 A sewer.
+91-100 A maze.
 ```
 
 Or multiple tables can be part of a collection, which will be placed in a folder:
@@ -69,7 +75,7 @@ Or multiple tables can be part of a collection, which will be placed in a folder
 Random Dungeons
 
 d12 The place is currently occupied by...
-### Location is filled with enemies \n Roll multiple times
+### Location is filled with enemies \n Roll multiple times on this table
 A dangerous outlaw.
 An elemental lord.
 A vampire.
@@ -97,7 +103,7 @@ An ancient race of giants.
 A tyrannical king of old.
 No one; it's a natural cave.
 
-d12 ...and located...
+d12 This place is located...
 Beneath a cold mountain.
 Beneath a fiery mountain.
 Near a well-traveled mountain pass.
@@ -114,13 +120,15 @@ In a place reachable only by magic.
 
 ### JSON
 
-A structure similar to Foundry's interface for tables is valid:
+For JSON, both files and pasted text can be used by the importer.
+
+A structure similar to Foundry's interface for tables is valid.
 
 ```json
 {
   "name": "Goods",
   "formula": "1d12",
-  "description": "List of equipment \n Second Line",
+  "description": "List of equipment \n Non-magical",
   "results": [
     { "range": [1, 4], "text": "Backpacks or sacks" },
     { "range": [5, 6], "text": "Baskets" },
@@ -138,29 +146,13 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 {
   "name": "Goods",
   "description": "List of equipment \n Non-magical",
-  "results": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope"]
+  "results": [ "Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope" ]
 }
 ```
 
-### Text Files
+### CSV
 
-A .txt file can be used to create a roll table, the importer will just treat each new line as an item in the table. The filename will be used as the table name.
-
-goods.txt :
-
-```txt
-### List of equipment
-Backpacks or sacks
-Baskets
-Bricks
-Books
-Cloth
-Rope
-```
-
-### CSVs
-
-A .csv can be used for a roll table. As commas are quite common in text that will appear in roll tables, the pipe is used as the delimiter instead (|). The file name will be used for the table name. A .csv file cannot use the description field.
+Text in CSV format can be used for a roll table. The pipe (|) symbol is used as the delimiter since commas are common in tables. For a .csv file, the file name will be used for the `table name`. If the csv text was pasted into the dialog, the table will named "CSV Imported Table". The CSV importer cannot use the `table name` nor `description` fields.
 
 goods.csv
 

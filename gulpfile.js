@@ -13,7 +13,7 @@ const semver = require('semver');
 
 const name = path.basename(path.resolve('.'));
 const sourceDirectory = './src';
-const distDirectory = './dist';
+const distDirectory = `./dist/${name}`;
 const stylesDirectory = `${sourceDirectory}/styles`;
 const stylesExtension = 'css';
 const sourceFileExtension = 'ts';

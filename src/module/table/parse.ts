@@ -131,7 +131,7 @@ export const parseFromTxt: TableParser = (input: string) => {
   }
   let description = '';
   if (lines[0].startsWith('###')) {
-    description = lines.shift()?.replace(/###/, '').trim() || '';
+    description = lines.shift()?.replace(/###/, '').trim().replace(/\\n/g, '</p><p>').trim() || '';
   }
   let results;
   if (numWeighted > 0) {
