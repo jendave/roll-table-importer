@@ -37,4 +37,25 @@ export class importTableForm extends FormApplication {
       title: 'Import Rollable Table',
     });
   }
+
+  static DEFAULT_OPTIONS = {
+    jQuery: false,
+    position: {
+      width: 400,
+      top: window.innerHeight - window.innerHeight + 20,
+      left: window.innerWidth - 710,
+    },
+    template: `modules/${CONSTANTS.module.name}/templates/importTableForm.hbs`,
+    title: 'Import Rollable Table',
+  };
+
+  get title() {
+    return 'Import Rollable Table';
+  }
+
+  static PARTS = {
+    foo: {
+      template: `modules/${CONSTANTS.module.name}/templates/importTableForm.hbs`,
+    },
+  };
 }
