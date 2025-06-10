@@ -45,9 +45,9 @@ Die-type (such as d6 or d100) and ranges can be specified. If the ranges are not
 
 The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) and [Foundry VTT Tables Repository](https://github.com/foundry-vtt-community/tables) are good sources for random tables.
 
-A simple single table can be created (example from a file):
+A simple single table can be created - Example from a file. Name of the table is the filename:
 
-goods.txt:
+`goods.txt`:
 
 ```txt
 Backpacks or sacks
@@ -160,7 +160,7 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 
 Text in CSV format can be used for a roll table. The pipe (|) symbol is used as the delimiter since commas are common in tables. For a .csv file, the file name will be used for the `table name`. If the csv text was pasted into the dialog, the table will named "CSV Imported Table". The CSV importer cannot use the `table name` nor `description` fields.
 
-goods.csv
+`goods.csv`
 
 ```csv
 01-04|Backpacks or sacks
