@@ -44,7 +44,7 @@ The roll table importer tool comes with a text box where you can copy/paste tabl
 
 Die-type (such as d6 or d100) and ranges can be specified. If the ranges are not stated, the importer will determine the table ranges based on the number of items in the table.
 
-The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) is a good source for random tables.
+The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) and [Foundry VTT Tables Repository](https://github.com/foundry-vtt-community/tables) are good sources for random tables.
 
 A simple single table can be created (example from a file):
 
@@ -59,7 +59,7 @@ Cloth
 Rope
 ```
 
-`Table Name`, `Descrption` and `Ranges` can also be added.
+`Table Name`, `Description` and `Ranges` can also be added.
 
 ```txt
 d100 This place is...
