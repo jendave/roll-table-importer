@@ -16,10 +16,10 @@
       "discord": "GabenMessiah (Ethan)#0551"
     }
   ],
-  "minimumCoreVersion": "12",
+  "minimumCoreVersion": "13",
   "compatibleCoreVersion": "13",
   "compatibility": {
-    "minimum": "12",
+    "minimum": "13",
     "verified": "13",
     "maximum": "13"
   },

@@ -12,7 +12,7 @@ Hooks.on('renderSidebarTab', (settings: Settings) => {
   }
 });
 
-Hooks.on('activateRollTableDirectory', (settings: Settings) => {
+Hooks.on('renderRollTableDirectory', (settings: Settings) => {
   if (!(game as Game)?.user?.isGM) return;
   const config = Config._load();
   if (config.tableImporter) {
