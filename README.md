@@ -5,11 +5,10 @@
 ![Foundry Version](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https%3A%2F%2Fraw.githubusercontent.com%2Fjendave%2Froll-table-importer%2Fmain%2Fsrc%2Fmodule.json)
 [![License](https://img.shields.io/github/license/jendave/roll-table-importer)](LICENSE)
 
-## WARNING
+## WARNING - Roll Table Compatibility
 
-* [Roll Table Importer](https://foundryvtt.com/packages/roll-table-importer) 2.0.x and above only run on [FoundryVTT v13](https://foundryvtt.com/releases/13.341).
+* When Roll Tables are put into Compendiums -
   * Roll tables created/edited on v13 *are not* compatible with v12.
-* [Roll Table Importer](https://foundryvtt.com/packages/roll-table-importer) 1.0.x and below only run on [FoundryVTT v12](https://foundryvtt.com/releases/12.343).
   * Roll tables created/edited on v12 are compatible with v13.
 
 ## Features and Notes
