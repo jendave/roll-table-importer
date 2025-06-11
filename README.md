@@ -43,7 +43,7 @@ The roll table importer tool comes with a text box where you can copy/paste tabl
 
 Die-type (such as d6 or d100) and ranges can be specified. If the ranges are not stated, the importer will determine the table ranges based on the number of items in the table.
 
-The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) and [Foundry VTT Tables Repository](https://github.com/foundry-vtt-community/tables) are good sources for random tables.
+The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) is a good source for random tables in plain-text format.
 
 A simple single table can be created - Example from a file. Name of the table is the filename:
 
@@ -127,6 +127,8 @@ In a place reachable only by magic.
 ### JSON
 
 For JSON, both files and pasted text can be used by the importer.
+
+The [Foundry VTT Tables Repository](https://github.com/foundry-vtt-community/tables) is a good source for random tables in JSON format.
 
 A structure similar to Foundry's interface for tables is valid.
 
