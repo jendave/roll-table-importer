@@ -45,7 +45,7 @@ Die-type (such as d6 or d100) and ranges can be specified. If the ranges are not
 
 The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) is a good source for random tables in plain-text format.
 
-A simple single table can be created - Example from a file. Name of the table is the filename:
+A simple single table can be created - Example from a file. The filename will be the name of the table.
 
 `goods.txt`:
 
@@ -58,7 +58,7 @@ Cloth
 Rope
 ```
 
-`Table Name`, `Description` and `Ranges` can also be added.
+`Die Type`, `Table Name`, `Description` and `Ranges` can also be added.
 
 ```txt
 d100 This place is...
