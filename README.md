@@ -39,7 +39,7 @@ Tables can be imported from a text, JSON, or CSV file. Each method is documented
 
 A .txt file can be used to create a roll table. The filename will be used as the `table name`. The importer will just treat each new line as an item in the table.
 
-The Roll Table Importer tool comes with a text box where you can copy/paste tables. The first line will be used as the `table name`. The `description` field must be the next line and be marked with `###` at the beginning of the line. Newlines must be marked with `\n` as shown in the examples.
+The `Roll Table Importer` tool comes with a text box where you can copy/paste tables. The first line will be used as the `table name`. The `description` field must be the next line and be marked with `###` at the beginning of the line. Newlines must be marked with `\n` as shown in the examples.
 
 Die-type (such as d6 or d100) and ranges can be specified. If the ranges are not stated, the importer will determine the table ranges based on the number of items in the table.
 
