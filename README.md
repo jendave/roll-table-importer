@@ -109,19 +109,20 @@ An ancient race of giants.
 A tyrannical king of old.
 No one; it's a natural cave.
 
-d12 This place is located...
-Beneath a cold mountain.
-Beneath a fiery mountain.
-Near a well-traveled mountain pass.
-Deep within a forest.
-Deep within a desert.
-Beside the sea.
-On an island.
-Beneath a bustling city.
-Beneath the ruin of an ancient city.
-Beneath a well-known castle or monastery.
-Beneath a the ruin of an old castle or monastery.
-In a place reachable only by magic.
+d100 This place is located...
+1-8 Beneath a cold mountain.
+9-16 Beneath a fiery mountain.
+17-24 Near a well-traveled mountain pass.
+25-32 Deep within a forest.
+33-40 Deep within a desert.
+41-48 Beside the sea.
+49-56 On an island.
+57-64 Beneath a bustling city.
+65-72 Beneath the ruin of an ancient city.
+73-80 Beneath a well-known castle or monastery.
+81-88 Beneath a the ruin of an old castle or monastery.
+89-94 Beneath a body of water.
+95-100 In a place reachable only by magic.
 ```
 
 ### JSON
