@@ -33,13 +33,13 @@ The `Roll Table Importer` module can create Foundry VTT roll tables from various
 
 ## Roll Table Formats
 
-Tables can be imported from a JSON file, a txt file, or a CSV file. Each method is documented below.
+Tables can be imported from a text, JSON, or CSV file. Each method is documented below.
 
 ### Text File
 
 A .txt file can be used to create a roll table. The filename will be used as the `table name`. The importer will just treat each new line as an item in the table.
 
-The roll table importer tool comes with a text box where you can copy/paste tables. The first line will be used as the `table name`. The `description` field must be marked with `###` at the beginning of the line. Newlines must be marked with `\n` as shown in the examples.
+The Roll Table Importer tool comes with a text box where you can copy/paste tables. The first line will be used as the `table name`. The `description` field must be the next line and be marked with `###` at the beginning of the line. Newlines must be marked with `\n` as shown in the examples.
 
 Die-type (such as d6 or d100) and ranges can be specified. If the ranges are not stated, the importer will determine the table ranges based on the number of items in the table.
 
@@ -75,7 +75,7 @@ d100 This place is...
 91-100 A maze.
 ```
 
-Or multiple tables can be part of a collection, which will be placed in a folder:
+Multiple tables can be part of a collection and will be placed in a folder. Put the name of the folder separately on the first line.
 
 ```txt
 Random Dungeons
@@ -149,7 +149,7 @@ A structure similar to Foundry's interface for tables is valid.
 }
 ```
 
-Or a simpler structure can be passed and the formula and ranges will be automatically calculated and evenly distributed:
+Or a simpler structure can be passed and the formula and ranges will be automatically calculated and evenly distributed.
 
 ```json
 {
@@ -161,7 +161,7 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 
 ### CSV
 
-Text in CSV format can be used for a roll table. The pipe (|) symbol is used as the delimiter since commas are common in tables. For a .csv file, the file name will be used for the `table name`. If the csv text was pasted into the dialog, the table will named "CSV Imported Table". The CSV importer cannot use the `table name` nor `description` fields.
+Text in CSV format can be used for a roll table. The pipe (|) symbol is used as the delimiter since commas are common in tables. For a .csv file, the file name will be used for the `table name`. If the csv text was pasted into the dialog, the table will named "CSV Imported Table". The CSV text cannot contain the `table name` nor `description` fields.
 
 `goods.csv`
 
@@ -208,6 +208,7 @@ Please check out my other modules and resources for Ironsworn, Ironsworn: Starfo
 * [Token Action HUD Ironsworn](https://foundryvtt.com/packages/token-action-hud-ironsworn)
 * [VOID 1680 AM for FoundryVTT](https://foundryvtt.com/packages/void-1680-am)
 * [Ancient Wonders](https://foundryvtt.com/packages/ancient-wonders)
+* [Roll Table Importer](https://foundryvtt.com/packages/roll-table-importer)
 
 ### [Itch.io](https://jendave.itch.io/) Resources
 
