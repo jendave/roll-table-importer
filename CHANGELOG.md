@@ -2,6 +2,10 @@
 
 [Roll Table Importer](https://foundryvtt.com/packages/roll-table-importer)
 
+## [1.1.0](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2025-11-19)
+
+* Minimum version is Foundry v13.
+
 ## [1.0.1](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2025-06-10)
 
 * Support for v13.
