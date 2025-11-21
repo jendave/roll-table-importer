@@ -48,7 +48,7 @@ export function parseBasicJSON({ name, description, results }: BasicTable) {
   const replacedDescription = description.replace(/\n/g, '</p><p>').trim();
   return {
     name: name,
-    description: replacedDescription || '',
+    description: `<p>${replacedDescription}</p>`,
     formula: formulaFromEntries(resultsParsed),
     results: resultsParsed,
   };
@@ -64,7 +64,7 @@ export function parseFoundryJSON({ name, formula, description, results }: Foundr
   return {
     name: name,
     formula,
-    description: replacedDescription || '',
+    description: `<p>${replacedDescription}</p>` || '',
     results: [...results],
   };
 }

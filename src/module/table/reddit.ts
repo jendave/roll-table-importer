@@ -21,7 +21,7 @@ export function parseWeightedTable(userInput: string): FoundryTable {
   if (lines[0].startsWith('###')) {
     const rawDescription = lines.shift() || '';
     const replacedDescription = rawDescription.replace(/###/, '').trim().replace(/\\n/g, '</p><p>').trim();
-    description = replacedDescription || '';
+    description = `<p>${replacedDescription}</p>`;
   }
   return applyWeights(name, description, lines);
 }
@@ -85,7 +85,7 @@ export function parseRedditTable(userInput: string): FoundryTable {
   if (lines[0].startsWith('###')) {
     const rawDescription = lines.shift() || '';
     const replacedDescription = rawDescription.replace(/###/, '').trim().replace(/\\n/g, '</p><p>').trim();
-    description = replacedDescription || '';
+    description = `<p>${replacedDescription}</p>` || '';
   }
   if (lines.length === 0) {
     throw new Error('No lines found in the table');
