@@ -2,6 +2,10 @@
 
 [Roll Table Importer](https://foundryvtt.com/packages/roll-table-importer)
 
+## [1.1.2](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2026-02-26)
+
+* Verified for v14.
+
 ## [1.1.1](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2025-11-20)
 
 * Fixed Description field for imported tables.
