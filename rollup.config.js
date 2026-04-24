@@ -1,4 +1,4 @@
-const typescript = require('rollup-plugin-typescript2');
+const typescript = require('@rollup/plugin-typescript');
 const { nodeResolve } = require('@rollup/plugin-node-resolve');
 const { copy } = require('@guanghechen/rollup-plugin-copy');
 
