@@ -6,5 +6,5 @@ export async function preloadTemplates(): Promise<Handlebars.TemplateDelegate[]>
     `modules/${CONSTANTS.module.name}/templates/importTableForm.hbs`,
   ];
 
-  return loadTemplates(templatePaths);
+  return foundry.applications.handlebars.loadTemplates(templatePaths);
 }
