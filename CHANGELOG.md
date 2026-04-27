@@ -2,6 +2,10 @@
 
 [Roll Table Importer](https://foundryvtt.com/packages/roll-table-importer)
 
+## [1.1.4](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2026-04-26)
+
+* Fixed deprecation warning.
+
 ## [1.1.3](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2026-04-24)
 
 * Fixed warnings when Foundry loads.
