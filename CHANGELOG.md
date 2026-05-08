@@ -2,6 +2,14 @@
 
 [Roll Table Importer](https://foundryvtt.com/packages/roll-table-importer)
 
+## [2.0.0](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2026-05-07)
+
+* Major revamp of module.
+  * [Add support for v13+ `name` and `description` fields](https://github.com/jendave/roll-table-importer/issues/1).
+  * [Add support for importing multiple tables at one time](https://github.com/jendave/roll-table-importer/issues/2).
+  * [Fix support for simple JSON files](https://github.com/jendave/roll-table-importer/issues/3).
+  * [Resolve conflict with Smalltime module](https://github.com/jendave/roll-table-importer/issues/4).
+
 ## [1.1.4](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2026-04-26)
 
 * Fixed deprecation warning.

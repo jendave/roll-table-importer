@@ -1,30 +1,72 @@
-/* ------------------------------------ */
-/*                 CSS                  */
-/*         Add your styles here         */
-/* ------------------------------------ */
-.form {
-  resize: both;
-  overflow: scroll;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+/* Override v14's window-content padding so our flex layout fills the space */
+.roll-table-importer .window-content {
+  padding: 6px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 0 !important;
+  min-height: 0;
+  overflow: hidden;
 }
 
-textarea {
+/* Form is a flex column that fills window-content */
+.roll-table-importer form.rtu-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px;
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+/* Fieldset groups */
+.roll-table-importer .rtu-group {
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 4px 6px 6px;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+/* Button rows are horizontal */
+.roll-table-importer .rtu-button-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 6px;
+}
+
+.roll-table-importer .rtu-button-row button {
+  flex: 1 1 0;
+}
+
+.roll-table-importer .rtu-status {
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+
+/* Paste area grows to fill remaining space */
+.roll-table-importer .form-group.rtu-paste {
+  flex: 1 1 0 !important;
+  min-height: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 0;
+}
+
+/* Textarea fills the paste area */
+.roll-table-importer .form-group.rtu-paste textarea {
+  flex: 1 1 0 !important;
+  min-height: 0;
+  width: 100%;
   resize: none;
   overflow: auto;
-  height: 100%;
-  position: relative;
+  box-sizing: border-box;
+  display: block;
 }
 
-div.textentry {
-  resize: none;
-  overflow: auto;
-  height: 80%;
-  position: relative;
+/* Import button full width */
+.roll-table-importer .rtu-footer {
+  flex: 0 0 auto;
 }
 
-div.row {
-  resize: none;
-  overflow: none;
+.roll-table-importer .rtu-footer button {
+  width: 100%;
 }

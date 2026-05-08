@@ -7,8 +7,9 @@
 
 ## WARNING - Roll Table Compatibility
 
+* [Roll Table Importer](https://github.com/jendave/roll-table-importer) only supoprts Foundry v13 and v14.
 * When Roll Tables are put into Compendiums -
-  * Roll tables created/edited on v13 *are not* compatible with v12.
+  * Roll tables created/edited on v13 and v14 *are not* compatible with v12.
   * Roll tables created/edited on v12 are compatible with v13.
 
 ## Features and Notes
@@ -18,18 +19,21 @@ The `Roll Table Importer` module can create Foundry VTT roll tables from various
 * Copy and paste data to be parsed (text, CSV, JSON).
 * Import text, CSV and JSON files.
 * Create tables with descriptions and ranges.
-* Create several tables all nested in a folder from text.
+* Create several tables all nested in folders and subfolders.
+* Tables can be created from files located on a Foundry server or a local computer.
 
 ## Usage
+
+![Screenshot](https://github.com/jendave/roll-table-importer/blob/main/docs/screenshot_button.jpg?raw=true)
 
 ![Screenshot](https://github.com/jendave/roll-table-importer/blob/main/docs/screenshot_dialog.jpg?raw=true)
 
 1. Click `Import Tables` button in the `Rollable Tables` tab in the sidebar.
-2. Enter text of roll table via clipboard or choose a file using the file-picker
+2. Enter text of roll table via clipboard or choose a file or directory using the file-picker
    1. Copy text you are trying to import and paste into the clipboard text area
-   2. Or use file icon to choose a file.
+   2. Or use file/direectory icons to choose a file/directory.
 3. Click `Okay`
-4. Roll table will appear in the `Rollable Tables` tab.
+4. Roll tables will appear in the `Rollable Tables` tab.
 
 ## Roll Table Formats
 
@@ -75,6 +79,23 @@ d100 This place is...
 91-100 A maze.
 ```
 
+And descriptions can be added by using `###` as a delimiter.
+
+```txt
+d100 This place is... (with descriptions)
+### Type of Location \n Has the location fallen into disrepair?
+1-10 Stronghold ### A stronghold description.
+11-20 Temple ### A temple description.
+21-35 Tomb ### A tomb description.
+36-40 Prison ### A prison description.
+41-55 Mine ### A mine description.
+55-70 Lair ### A lair description.
+71-75 Palace ### A palace description.
+76-80 Vault ### A storage vault description.
+81-90 Sewer ### A sewer description.
+91-100 Maze ### A maze description.
+```
+
 Multiple tables can be part of a collection and will be placed in a folder. Put the name of the folder separately on the first line.
 
 ```txt
@@ -82,11 +103,11 @@ Random Dungeons
 
 d12 The place is currently occupied by...
 ### Location is filled with enemies \n Roll multiple times on this table
-A dangerous outlaw.
-An elemental lord.
-A vampire.
-A lich.
-A demon.
+Outlaw ### A dangerous outlaw.
+Lord ### An elemental lord.
+Vampire ### A vampire.
+Lich ### A lich.
+Demon ### A demon.
 A devil.
 An orc warlord.
 A hobgoblin commander.
@@ -149,11 +170,29 @@ A structure similar to Foundry's interface for tables is valid.
 }
 ```
 
+Descriptions can also be included.
+
+```json
+{
+  "name": "Goods v13",
+  "formula": "1d12",
+  "description": "List of equipment \n Non-magical",
+  "results": [
+    { "range": [1, 4], "name": "Backpacks or sacks", "description": "A backpack or sack is for carrying gear." },
+    { "range": [5, 6], "name": "Baskets", "description": "A basket is for carrying items." },
+    { "range": [7, 8], "name": "Bricks", "description": "A brick is a building material." },
+    { "range": [9, 10], "name": "Books", "description": "A book is a written work." },
+    { "range": [11, 11], "name": "Cloth", "description": "Cloth is a material for making clothing." },
+    { "range": [12, 12], "name": "Rope", "description": "Rope is good for dungeon-crawling." }
+  ]
+}
+```
+
 Or a simpler structure can be passed and the formula and ranges will be automatically calculated and evenly distributed.
 
 ```json
 {
-  "name": "Goods",
+  "name": "Goods - Simple",
   "description": "List of equipment \n Non-magical",
   "results": [ "Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope" ]
 }

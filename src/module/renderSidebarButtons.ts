@@ -1,26 +1,20 @@
-import { importTableForm as ImportTableForm } from './importTableForm';
-
+import { ImportTableForm } from './importTableForm';
 import { Handler } from './importForm';
 
-export function renderSidebarButtons(settings: Settings, tab: string, handler: Handler) {
-  if (settings.id != tab) return;
-  const name = tab.charAt(0).toUpperCase() + tab.slice(1);
+export function renderSidebarButtons(settings: Settings, tab: string, handler: Handler): void {
+  if (settings.id !== tab) return;
   const html = $(settings.element);
   if (html.find('#inputButton').length !== 0) return;
-  const button = `<button id="inputButton" style="flex-basis: auto;">
-  <i class="fas fa-atlas"></i> Import ${name}
-</button>`;
-  html.find(`.header-actions`).first().append(button);
-  html.find('#inputButton').on('click', async (e) => {
+
+  const button = `<div style="flex: 0 0 100%; display: flex;">
+  <button id="inputButton" style="flex: 1;">
+    <i class="fas fa-atlas"></i> Import Tables
+  </button>
+</div>`;
+  html.find('.header-actions').first().append(button);
+  html.find('#inputButton').on('click', (e) => {
     e.preventDefault();
-    switch (tab) {
-      case 'tables': {
-        const form = new ImportTableForm(handler, tab);
-        form.render(true);
-        break;
-      }
-      default:
-        throw new Error(`Unknown tab: ${tab}`);
-    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (new ImportTableForm(handler) as any).render(true);
   });
 }

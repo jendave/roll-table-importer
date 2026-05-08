@@ -1,0 +1,8 @@
+{
+  "name": "Sample table Issue 03",
+  "description": "Table description",
+  "results": [
+    { "range": [1, 20], "text": "Option 1" },
+    { "range": [21, 30], "text": "Option 2" }
+  ]
+}

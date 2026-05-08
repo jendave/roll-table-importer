@@ -1,15 +1,34 @@
-<form>
-  <div class="form-group row">
-    <label for="jsonfile">Roll Table File:</label>
-    <div class="form-fields row">
-      <file-picker type="text" target="jsonfile" name="jsonfile" placeholder="path/file.{json/csv/txt}" value="{{object.jsonfile}}" />
+<form class="rtu-form">
+
+  <fieldset class="rtu-group">
+    <legend>Foundry Server</legend>
+    <div class="rtu-button-row">
+      <button type="button" id="foundryFileBtn"><i class="fas fa-file"></i> File</button>
+      <button type="button" id="foundryDirBtn"><i class="fas fa-folder-open"></i> Directory</button>
     </div>
+    <div class="rtu-status" id="foundryStatus">Nothing selected.</div>
+    <input type="hidden" id="foundryFile" name="foundryFile" value="" />
+    <input type="hidden" id="foundryDirectory" name="foundryDirectory" value="" />
+  </fieldset>
+
+  <fieldset class="rtu-group">
+    <legend>Local Computer</legend>
+    <div class="rtu-button-row">
+      <button type="button" id="localFileBtn"><i class="fas fa-file-upload"></i> File(s)</button>
+      <button type="button" id="localDirBtn"><i class="fas fa-folder-plus"></i> Directory</button>
+    </div>
+    <div class="rtu-status" id="localStatus">Nothing selected.</div>
+    <input type="file" id="localFileInput" name="localFileInput" multiple accept=".json,.csv,.txt" hidden />
+    <input type="file" id="localDirInput" name="localDirInput" webkitdirectory hidden />
+  </fieldset>
+
+  <div class="form-group rtu-paste">
+    <textarea id="clipboardInput" name="clipboardInput"
+      placeholder="Paste text, JSON, or CSV here — or use the pickers above."></textarea>
   </div>
-  <div class="form-group textentry" overflow="scroll">
-    <textarea id="clipboardInput" name="clipboardInput" rows="15" cols="50"
-      placeholder="Use File Picker icon above to select a file. Or paste text, json or CSV into this text area..."></textarea>
+
+  <div class="rtu-footer">
+    <button type="button" id="importButton"><i class="fas fa-download"></i> Import</button>
   </div>
-  <div>
-    <button type="submit" name="submit" value="submit">Okay</button>
-  </div>
+
 </form>

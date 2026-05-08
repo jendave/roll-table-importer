@@ -1,0 +1,14 @@
+d12 The place is currently occupied by...
+### Location is filled with enemies \n Roll multiple times on this table
+A dangerous outlaw.
+An elemental lord.
+A vampire.
+A lich.
+A demon.
+A devil.
+An orc warlord.
+A hobgoblin commander.
+An aberrant presence.
+A witch.
+A giant.
+A dragon.

@@ -1,0 +1,5 @@
+{
+  "name": "Goods - Simple",
+  "description": "List of equipment \n Non-magical",
+  "results": ["Backpacks or sacks", "Baskets", "Bricks", "Books", "Cloth", "Rope"]
+}

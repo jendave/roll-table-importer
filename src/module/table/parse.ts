@@ -1,225 +1,212 @@
-import { cleanName } from '../formatters';
-import { TableParser } from './process';
+import { cleanName, nameFromFile, parseResultText, textToEntry } from '../formatters';
 import { addWeight, breakLines, hasWeights, rangeStringMap } from './lineManipulators';
 import { hasDieNumber } from './stringInspectors';
+import { BasicTable, FoundryTable, TableData, TableEntry } from './types';
 
-export type TableData = ConstructorParameters<typeof foundry.documents.BaseRollTable>[0];
+export type { TableData, TableEntry, FoundryTable, BasicTable };
 
-export interface TableEntry {
-  range: [number, number];
-  text: string;
+// ─── Type guards ─────────────────────────────────────────────────────────────
+
+export function isFoundryTable(table: FoundryTable | BasicTable): table is FoundryTable {
+  // A Foundry-style table has object results (with range), not plain strings.
+  // formula may be absent and should be inferred.
+  const results = (table as FoundryTable).results;
+  return Array.isArray(results) && results.length > 0 && typeof results[0] === 'object';
 }
 
-export interface FoundryTable {
-  name: string;
-  formula: string;
-  description: string;
-  results: TableEntry[];
+export function isCSVTable(data: string): boolean {
+  const firstLine = data.split('\n')[0];
+  return firstLine.includes('|') || firstLine.includes(',');
 }
 
-export interface BasicTable {
-  name: string;
-  description: string;
-  results: string[];
-}
-
-export function isFoundryTable(table: FoundryTable | BasicTable) {
-  return (table as FoundryTable).formula !== undefined;
-}
-
-export function isBasicTable(table: FoundryTable | BasicTable) {
-  return (table as FoundryTable).formula === undefined;
-}
-
-const entryStringMap = (current: string, index: number): TableEntry => {
-  return {
-    text: current,
-    range: [index + 1, index + 1],
-  };
-};
-
-export function parseBasicJSON({ name, description, results }: BasicTable) {
-  const resultsParsed = results.map(entryStringMap);
-  if (description === undefined) {
-    description = '';
-  } else if (description === null) {
-    description = '';
+export function isJSONTable(data: string): boolean {
+  try {
+    JSON.parse(data);
+    return true;
+  } catch {
+    return false;
   }
-  const replacedDescription = description.replace(/\n/g, '</p><p>').trim();
-  return {
-    name: name,
-    description: `<p>${replacedDescription}</p>`,
-    formula: formulaFromEntries(resultsParsed),
-    results: resultsParsed,
-  };
 }
 
-export function parseFoundryJSON({ name, formula, description, results }: FoundryTable) {
-  if (description === undefined) {
-    description = '';
-  } else if (description === null) {
-    description = '';
-  }
-  const replacedDescription = description.replace(/\n/g, '</p><p>').trim();
-  return {
-    name: name,
-    formula,
-    description: `<p>${replacedDescription}</p>` || '',
-    results: [...results],
-  };
-}
+// ─── Helpers ─────────────────────────────────────────────────────────────────
 
 export function formulaFromEntries(entries: TableEntry[]): string {
   return `1d${entries[entries.length - 1].range[1]}`;
 }
 
-function nameFromFile(file: string) {
-  // get the filename without the extension
-  const withPath = file.split('.')[0];
-  // remove the file path
-  const name = withPath.split('/').pop() || withPath;
-  // replace all underscores with spaces
-  // and capitalize the first letter of each word
-  return cleanName(name);
+function wrapDescription(description: string): string {
+  if (!description) return '';
+  return `<p>${description.replace(/\n/g, '</p><p>').trim()}</p>`;
 }
 
-export function isCSVTable(data: string) {
-  const delims = ['|', ','];
-  const check = data.split('\n')[0];
-  return delims.reduce((acc, cur) => check.includes(cur) || acc, false);
+/**
+ * Normalises a legacy "text" field (pre-v13) or a current "name"/"description"
+ * pair into a TableEntry. Applies ### splitting when reading legacy text.
+ */
+function normaliseLegacyEntry(entry: {
+  range: [number, number];
+  text?: string;
+  name?: string;
+  description?: string;
+}): TableEntry {
+  if (entry.name !== undefined || entry.description !== undefined) {
+    return {
+      range: entry.range,
+      name: entry.name ?? '',
+      description: entry.description ?? '',
+    };
+  }
+  const { name, description } = parseResultText(entry.text ?? '');
+  return { range: entry.range, name, description };
 }
 
-export function isJSONTable(data: string) {
-  try {
-    JSON.parse(data);
-  } catch (e) {
-    return false;
-  }
-  return true;
-}
+// ─── JSON parsers ─────────────────────────────────────────────────────────────
 
-export function numWithWeights(entries: string[]) {
-  return entries.reduce((numWeights, cur) => {
-    if (hasWeights(cur)) {
-      numWeights += 1;
-    }
-    return numWeights;
-  }, 0);
-}
-
-const trimDieLine = (line: string): string => {
-  return `1d${line.trim().split(' ')[0].replace('1d', '').replace('d', '')}`;
-};
-
-export const parseFromTxt: TableParser = (input: string) => {
-  const table = input.replace('/t', '\n');
-  const lines = breakLines(table);
-  let name = lines.shift() || 'Parsed Table';
-  const numWeighted: number = numWithWeights(lines);
-  let formula;
-  if (hasDieNumber(name)) {
-    const split = name.split(/(d[0-9]{1,4})/);
-    const dieLine = split[1];
-    name = split[0];
-    formula = trimDieLine(dieLine);
-  } else if (hasDieNumber(lines[0])) {
-    const dieLine = lines.shift();
-    if (!dieLine) {
-      throw new Error('No die line found');
-    }
-    formula = trimDieLine(dieLine);
-  }
-  let description = '';
-  if (lines[0].startsWith('###')) {
-    description = lines.shift()?.replace(/###/, '').trim().replace(/\\n/g, '</p><p>').trim() || '';
-  }
-  let results;
-  if (numWeighted > 0) {
-    // remove any lines until we find the first line with weights
-    let firstWeightIndex = 0;
-
-    for (let i = 0; i < lines.length; i++) {
-      if (hasWeights(lines[i])) {
-        firstWeightIndex = i;
-        break;
-      }
-    }
-
-    results = lines.slice(firstWeightIndex).reduce(entryTxtReduce, []);
-  } else {
-    results = lines.map(entryStringMap);
-  }
-  results = results.map((entry) => {
-    entry.text = entry.text.trim();
-    return entry;
-  });
+export function parseFoundryJSON(table: FoundryTable): TableData {
+  const results = table.results.map(normaliseLegacyEntry);
+  const formula = table.formula ?? formulaFromEntries(results);
   return {
-    name: nameFromFile(name),
-    formula: formula ?? formulaFromEntries(results),
-    description: description,
+    name: table.name,
+    formula,
+    description: wrapDescription(table.description ?? ''),
     results,
   };
-};
+}
+
+export function parseBasicJSON(table: BasicTable): TableData {
+  const results = table.results.map(textToEntry);
+  return {
+    name: table.name,
+    description: wrapDescription(table.description ?? ''),
+    formula: formulaFromEntries(results),
+    results,
+  };
+}
+
+// ─── CSV parser ───────────────────────────────────────────────────────────────
+
+export function parseFromCSV(filename: string, lines: string[]): TableData {
+  const results: TableEntry[] = lines.map((line) => {
+    const separatorIndex = line.indexOf('|');
+    const rangeStr = line.slice(0, separatorIndex);
+    const text = line.slice(separatorIndex + 1);
+    const { name, description } = parseResultText(text);
+    return { name, description, range: rangeStringMap(rangeStr) };
+  });
+  return {
+    name: nameFromFile(filename),
+    description: '',
+    formula: formulaFromEntries(results),
+    results,
+  };
+}
+
+// ─── TXT parser ───────────────────────────────────────────────────────────────
+
+const trimDieLine = (line: string): string => `1d${line.trim().split(' ')[0].replace('1d', '').replace('d', '')}`;
 
 const entryTxtReduce = (acc: TableEntry[], curr: string): TableEntry[] => {
   if (hasWeights(curr)) {
-    const [stringRange, ...text] = curr.split(' ');
-    const [start, end] = rangeStringMap(stringRange);
-    acc.push({
-      text: text.join(' '),
-      range: [start, end],
-    });
-  } else {
-    acc[acc.length - 1].text += ` ${curr}`;
+    const [rangeStr, ...rest] = curr.split(' ');
+    const { name, description } = parseResultText(rest.join(' '));
+    acc.push({ name, description, range: rangeStringMap(rangeStr) });
+  } else if (acc.length > 0) {
+    acc[acc.length - 1].description += ` ${curr.trim()}`;
   }
   return acc;
 };
 
-const entryCSVMap = (current: string): TableEntry => {
-  const [stringRange, text] = current.split('|');
-  const [start, end] = rangeStringMap(stringRange);
-  return {
-    text,
-    range: [start, end],
-  };
-};
+export function parseFromTxt(input: string): FoundryTable {
+  const lines = breakLines(input.replace('/t', '\n'));
+  let rawName = lines.shift() ?? 'Parsed Table';
+  let formula: string | undefined;
 
-export function parseFromCSV(table: BasicTable) {
-  const { name, description, results } = table;
-  const resultsParsed = results.map(entryCSVMap);
+  if (hasDieNumber(rawName)) {
+    const split = rawName.split(/(d[0-9]{1,4})/);
+    formula = trimDieLine(split[1]);
+    rawName = split[0];
+  } else if (lines.length > 0 && hasDieNumber(lines[0])) {
+    formula = trimDieLine(lines.shift() ?? '');
+  }
+
+  let tableDescription = '';
+  if (lines.length > 0 && lines[0].startsWith('###')) {
+    tableDescription = (lines.shift() ?? '').replace(/###/, '').trim().replace(/\\n/g, '</p><p>');
+  }
+
+  const numWeighted = lines.filter(hasWeights).length;
+  let results: TableEntry[];
+
+  if (numWeighted > 0) {
+    const firstWeightIndex = lines.findIndex(hasWeights);
+    results = lines.slice(firstWeightIndex).reduce(entryTxtReduce, []);
+  } else {
+    results = lines.map(textToEntry);
+  }
+
   return {
-    name: nameFromFile(name),
-    description: description || '',
-    formula: formulaFromEntries(resultsParsed),
-    results: resultsParsed,
+    name: cleanName(rawName),
+    formula: formula ?? formulaFromEntries(results),
+    description: tableDescription,
+    results,
   };
 }
 
-export function parseMultiLineWeighted(inputTable: string) {
-  const lines = breakLines(inputTable);
-  let name = 'Parsed Table';
-  if (!hasWeights(lines[0])) {
-    name = lines.shift() || 'Parsed Table';
-  }
-  const withWeights = numWithWeights(lines);
-  if (withWeights !== lines.length / 2) {
-    throw new Error('Not a multi line weighted table');
-  }
+// ─── Reddit / weighted collection parsing ─────────────────────────────────────
 
-  const entries = lines.reduce((acc: TableEntry[], curr: string) => {
-    if (hasWeights(curr)) {
-      acc.push(addWeight(curr));
-    } else {
-      acc[acc.length - 1].text = curr;
-    }
-    return acc;
-  }, []);
-  const formula = formulaFromEntries(entries);
-  const description = '';
-  return {
-    name,
-    formula,
-    description,
-    results: entries,
-  };
+function applyWeights(name: string, description: string, lines: string[]): FoundryTable {
+  const results: TableEntry[] = hasWeights(lines[0]) ? lines.map(addWeight) : lines.map(textToEntry);
+  return { name, description, formula: formulaFromEntries(results), results };
+}
+
+function parseRedditName(raw: string): string {
+  return raw
+    .replace(/d[0-9]{1,3}/, '')
+    .replace(/[0-9]{1,3}/, '')
+    .trim();
+}
+
+function extractTableDescription(lines: string[]): string {
+  if (lines.length > 0 && lines[0].startsWith('###')) {
+    const raw = (lines.shift() ?? '').replace(/###/, '').trim();
+    return `<p>${raw.replace(/\\n/g, '</p><p>')}</p>`;
+  }
+  return '';
+}
+
+export function parseWeightedTable(userInput: string): FoundryTable {
+  const lines = breakLines(userInput).filter((l) => l !== '');
+  let rawName = 'Parsed Table';
+  if (!hasWeights(lines[0]) || hasDieNumber(lines[0])) {
+    rawName = lines.shift() ?? 'Parsed Table';
+  }
+  const description = extractTableDescription(lines);
+  return applyWeights(parseRedditName(rawName), description, lines);
+}
+
+export interface TableCollection {
+  name: string;
+  collection: FoundryTable[];
+}
+
+function parseRedditTable(input: string): FoundryTable {
+  const lines = breakLines(input).filter((l) => l !== '');
+  const rawName = lines.shift() ?? 'No Name';
+  const description = extractTableDescription(lines);
+  if (lines.length === 0) throw new Error('No result lines found');
+  return applyWeights(parseRedditName(rawName), description, lines);
+}
+
+export function parseRedditCollection(userInput: string): TableCollection {
+  const parts = userInput.split(/\nd[0-9]{1,2}/);
+  const name = (parts.shift() ?? 'No Name').trim();
+  return { name, collection: parts.map(parseRedditTable) };
+}
+
+export function isRedditTable(userInput: string): boolean {
+  return /^d[0-9]{1,3}/.test(userInput.trim());
+}
+
+export function isRedditCollection(userInput: string): boolean {
+  return userInput.split(/\nd[0-9]{1,2}/).length > 2;
 }

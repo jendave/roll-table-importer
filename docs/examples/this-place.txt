@@ -1,0 +1,12 @@
+d100 This place is...
+### Type of Location \n Has the location fallen into disrepair?
+1-10 A stronghold.
+11-20 A temple.
+21-35 A tomb.
+36-40 A prison.
+41-55 A mine.
+55-70 A lair.
+71-75 A palace.
+76-80 A storage vault.
+81-90 A sewer.
+91-100 A maze.

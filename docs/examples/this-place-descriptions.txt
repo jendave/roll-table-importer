@@ -1,0 +1,12 @@
+d100 This place is... (with descriptions)
+### Type of Location \n Has the location fallen into disrepair?
+1-10 Stronghold ### A stronghold description.
+11-20 Temple ### A temple description.
+21-35 Tomb ### A tomb description.
+36-40 Prison ### A prison description.
+41-55 Mine ### A mine description.
+55-70 Lair ### A lair description.
+71-75 Palace ### A palace description.
+76-80 Vault ### A storage vault description.
+81-90 Sewer ### A sewer description.
+91-100 Maze ### A maze description.

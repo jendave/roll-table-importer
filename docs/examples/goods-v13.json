@@ -1,0 +1,13 @@
+{
+  "name": "Goods v13",
+  "formula": "1d12",
+  "description": "List of equipment \n Non-magical",
+  "results": [
+    { "range": [1, 4], "name": "Backpacks or sacks", "description": "A backpack or sack is for carrying gear." },
+    { "range": [5, 6], "name": "Baskets", "description": "A basket is for carrying items." },
+    { "range": [7, 8], "name": "Bricks", "description": "A brick is a building material." },
+    { "range": [9, 10], "name": "Books", "description": "A book is a written work." },
+    { "range": [11, 11], "name": "Cloth", "description": "Cloth is a material for making clothing." },
+    { "range": [12, 12], "name": "Rope", "description": "Rope is good for dungeon-crawling." }
+  ]
+}
