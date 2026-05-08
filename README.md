@@ -7,7 +7,7 @@
 
 ## WARNING - Roll Table Compatibility
 
-* [Roll Table Importer](https://github.com/jendave/roll-table-importer) only supoprts Foundry v13 and v14.
+* [Roll Table Importer](https://github.com/jendave/roll-table-importer) only supports Foundry v13 and v14.
 * When Roll Tables are put into Compendiums -
   * Roll tables created/edited on v13 and v14 *are not* compatible with v12.
   * Roll tables created/edited on v12 are compatible with v13.
