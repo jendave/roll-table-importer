@@ -9,6 +9,7 @@
   * [Add support for importing multiple tables at one time](https://github.com/jendave/roll-table-importer/issues/2).
   * [Fix support for simple JSON files](https://github.com/jendave/roll-table-importer/issues/3).
   * [Resolve conflict with Smalltime module](https://github.com/jendave/roll-table-importer/issues/4).
+  * Update to ApplicationV2.
 
 ## [1.1.4](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2026-04-26)
 
