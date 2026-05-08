@@ -7,20 +7,19 @@
 
 ## WARNING - Roll Table Compatibility
 
-* [Roll Table Importer](https://github.com/jendave/roll-table-importer) only supports Foundry v13 and v14.
-* When Roll Tables are put into Compendiums -
+* [Roll Table Importer](https://github.com/jendave/roll-table-importer) supports Foundry v13 and v14.
   * Roll tables created/edited on v13 and v14 *are not* compatible with v12.
-  * Roll tables created/edited on v12 are compatible with v13.
+  * Roll tables created/edited on v12 are compatible with v13 and v14.
 
 ## Features and Notes
 
 The `Roll Table Importer` module can create Foundry VTT roll tables from various kinds of text files.
 
 * Copy and paste data to be parsed (text, CSV, JSON).
-* Import text, CSV and JSON files.
-* Create tables with descriptions and ranges.
-* Create several tables all nested in folders and subfolders.
+  * Import text, CSV and JSON files.
+* Mutiple tables can be created from files located in folders and subfolders.
 * Tables can be created from files located on a Foundry server or a local computer.
+* Create tables with names, descriptions and ranges.
 
 ## Usage
 
@@ -29,9 +28,9 @@ The `Roll Table Importer` module can create Foundry VTT roll tables from various
 ![Screenshot](https://github.com/jendave/roll-table-importer/blob/main/docs/screenshot_dialog.jpg?raw=true)
 
 1. Click `Import Tables` button in the `Rollable Tables` tab in the sidebar.
-2. Enter text of roll table via clipboard or choose a file or directory using the file-picker
+2. Paste text of a roll table via clipboard or choose a file or directory using the file-pickers.
    1. Copy text you are trying to import and paste into the clipboard text area
-   2. Or use file/direectory icons to choose a file/directory.
+   2. Or use file/directory icons to choose a file/directory from the Foundry server or local filesystem.
 3. Click `Okay`
 4. Roll tables will appear in the `Rollable Tables` tab.
 
@@ -49,7 +48,7 @@ Die-type (such as d6 or d100) and ranges can be specified. If the ranges are not
 
 The [Behind the Tables subreddit](https://www.reddit.com/r/BehindTheTables) is a good source for random tables in plain-text format.
 
-A simple single table can be created - Example from a file. The filename will be the name of the table.
+A simple single table can be created from a file. The filename will be the name of the table.
 
 `goods.txt`:
 
@@ -62,7 +61,7 @@ Cloth
 Rope
 ```
 
-`Die Type`, `Table Name`, `Description` and `Ranges` can also be added.
+This example is pasted into the textbox. `Die Type`, `Table Name`, `Description` and `Ranges` can also be added.
 
 ```txt
 d100 This place is...
@@ -96,7 +95,7 @@ d100 This place is... (with descriptions)
 91-100 Maze ### A maze description.
 ```
 
-Multiple tables can be part of a collection and will be placed in a folder. Put the name of the folder separately on the first line.
+Multiple tables can be part of a collection and will be placed in a folder. Put the name of the folder separately on the first line and paste into the textbox.
 
 ```txt
 Random Dungeons
@@ -148,7 +147,7 @@ d100 This place is located...
 
 ### JSON
 
-For JSON, both files and pasted text can be used by the importer.
+For JSON, both files/directories and pasted text can be used by the importer.
 
 The [Foundry VTT Tables Repository](https://github.com/foundry-vtt-community/tables) is a good source for random tables in JSON format.
 
@@ -200,13 +199,13 @@ Or a simpler structure can be passed and the formula and ranges will be automati
 
 ### CSV
 
-Text in CSV format can be used for a roll table. The pipe (|) symbol is used as the delimiter since commas are common in tables. For a .csv file, the file name will be used for the `table name`. If the csv text was pasted into the dialog, the table will named "CSV Imported Table". The CSV text cannot contain the `table name` nor `description` fields.
+Text in CSV format can be used for a roll table. The pipe (|) symbol is used as the delimiter since commas are common in tables. For a .csv file, the file name will be used for the `table name`. If the csv text was pasted into the textbox, the table will named `CSV Imported Table`. The CSV text cannot contain the `table name`.
 
 `goods.csv`
 
 ```csv
-01-04|Backpacks or sacks
-05-06|Baskets
+01-04|Backpacks or sacks ### Backpack description
+05-06|Baskets ### Basket description
 07-08|Bricks
 09-10|Books
 11|Cloth
