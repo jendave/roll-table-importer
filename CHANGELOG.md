@@ -2,6 +2,10 @@
 
 [Roll Table Importer](https://foundryvtt.com/packages/roll-table-importer)
 
+## [2.0.1](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2026-07-03)
+
+* Updated build process.
+
 ## [2.0.0](https://github.com/jendave/roll-table-importer/blob/main/CHANGELOG.md) (2026-05-07)
 
 * Major revamp of module.
