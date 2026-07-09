@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "command": "npm run test:watch",
-      "label": "🧪 Run unit tests and watch for changes",
-      "problemMatcher": [],
-      "type": "shell"
-    },
-    {
       "label": "🚀 Build module and watch for changes",
       "type": "shell",
       "command": "npm run build:watch",
