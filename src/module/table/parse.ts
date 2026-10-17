@@ -15,8 +15,10 @@ export function isFoundryTable(table: FoundryTable | BasicTable): table is Found
 }
 
 export function isCSVTable(data: string): boolean {
+  // parseFromCSV only splits on '|', so a comma alone (common in result
+  // text) must not route the input there.
   const firstLine = data.split('\n')[0];
-  return firstLine.includes('|') || firstLine.includes(',');
+  return firstLine.includes('|');
 }
 
 export function isJSONTable(data: string): boolean {
@@ -123,8 +125,11 @@ export interface ParseFromTxtOptions {
 
 const entryTxtReduce = (acc: TableEntry[], curr: string): TableEntry[] => {
   if (hasWeights(curr)) {
-    const [rangeStr, ...rest] = curr.split(' ');
-    const { name, description } = parseResultText(rest.join(' '));
+    // Split on any whitespace: text copied from PDFs often has a tab or a
+    // non-breaking space between the range and the result.
+    const trimmed = curr.trim();
+    const rangeStr = trimmed.split(/\s/, 1)[0];
+    const { name, description } = parseResultText(trimmed.slice(rangeStr.length));
     acc.push({ name, description, range: rangeStringMap(rangeStr) });
   } else if (acc.length > 0) {
     acc[acc.length - 1].description += ` ${curr.trim()}`;
@@ -133,7 +138,7 @@ const entryTxtReduce = (acc: TableEntry[], curr: string): TableEntry[] => {
 };
 
 export function parseFromTxt(input: string, options?: ParseFromTxtOptions): FoundryTable {
-  const lines = breakLines(input.replace('/t', '\n'));
+  const lines = breakLines(input);
   let rawName: string;
 
   if (

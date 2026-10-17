@@ -20,6 +20,9 @@ export const rangeStringMap = (current: string): [number, number] => {
     [start, end] = current.split('–').map(Number);
   } else if (current.includes('-')) {
     [start, end] = current.split('-').map(Number);
+  } else if (/^\d+\+$/.test(current.trim())) {
+    // Open-ended "N+" row, e.g. "32+".
+    start = end = parseInt(current, 10);
   } else {
     start = Number(current);
     end = start;
