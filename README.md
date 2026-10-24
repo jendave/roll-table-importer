@@ -16,7 +16,7 @@ The `Roll Table Importer` module can create Foundry VTT roll tables from various
 
 * Copy and paste data to be parsed (text, CSV, JSON).
   * Import text, CSV and JSON files.
-* Mutiple tables can be created from files located in folders and subfolders.
+* Multiple tables can be created from files located in folders and subfolders.
 * Tables can be created from files located on a Foundry server or a local computer.
 * Create tables with names, descriptions and ranges.
 
